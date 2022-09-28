@@ -19,5 +19,7 @@ engines (in a package or otherwise) so that they can be accessed using
 packages that use modelenv.
 }
 \examples{
-# set_new_model("shallow_learning_model")
+\dontshow{if (FALSE) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+set_new_model("shallow_learning_model")
+\dontshow{\}) # examplesIf}
 }

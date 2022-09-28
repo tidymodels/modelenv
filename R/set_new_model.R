@@ -8,8 +8,8 @@
 #'   engines (in a package or otherwise) so that they can be accessed using
 #'   packages that use modelenv.
 #'
-#' @examples
-#' # set_new_model("shallow_learning_model")
+#' @examplesIf FALSE
+#' set_new_model("shallow_learning_model")
 #' @export
 set_new_model <- function(model) {
   check_model_doesnt_exist(model)
