@@ -2,12 +2,9 @@
 % Please edit documentation in R/set_new_model.R
 \name{set_new_model}
 \alias{set_new_model}
-\alias{check_model_doesnt_exist}
 \title{Register New Model}
 \usage{
 set_new_model(model)
-
-check_model_doesnt_exist(model)
 }
 \arguments{
 \item{model}{A single character string for the model type (e.g. "k_means",
