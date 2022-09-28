@@ -3,4 +3,5 @@
 export(get_from_env)
 export(get_model_env)
 export(set_env_val)
+export(set_model_mode)
 export(set_new_model)
