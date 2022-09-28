@@ -9,7 +9,7 @@
 #'   environment.
 #' @param value A single value for a new value in the model environment.
 #' @keywords internal
-#' @examples
+#' @examplesIf FALSE
 #' # Access the model data:
 #' current_code <- get_model_env()
 #' ls(envir = current_code)
