@@ -1,0 +1,71 @@
+#' Register Engine for Model
+#'
+#' This function is used to register a mode for a model and mode combination.
+#'
+#' @param model A single character string for the model type (e.g. "k_means",
+#'   etc).
+#' @param mode A single character string for the model mode (e.g. "partition").
+#' @param eng A single character string for the model engine.
+#' @details
+#' This function will error if called multiple times with the same arguments. As
+#' you should only have one unique model, mode, eng combination.
+#'
+#' @examplesIf FALSE
+#' set_new_model("shallow_learning_model")
+#' set_model_mode("shallow_learning_model", "partition")
+#'
+#' get_from_env("shallow_learning_model")
+#'
+#' set_model_engine("shallow_learning_model", "partition", "stats")
+#'
+#' get_from_env("shallow_learning_model")
+#' @export
+set_model_engine <- function(model, mode, eng) {
+  check_model_exists(model)
+  check_mode_val(mode)
+  check_eng_val(eng)
+  check_mode_for_new_engine(model, eng, mode)
+
+  new_eng <- tibble::tibble(engine = eng, mode = mode)
+  old_eng <- get_from_env(model)
+
+  engs <- vctrs::vec_rbind(old_eng, new_eng)
+  engs <- vctrs::vec_slice(engs, vctrs::vec_unique_loc(engs))
+
+  set_env_val(model, engs)
+  set_model_mode(model, mode)
+  invisible(NULL)
+}
+
+check_eng_val <- function(eng) {
+  if (rlang::is_missing(eng) || length(eng) != 1 || !is.character(eng)) {
+    rlang::abort(
+      "Please supply a character string for an engine name (e.g. `'stats'`)"
+    )
+  }
+  invisible(NULL)
+}
+
+check_mode_for_new_engine <- function(model, eng, mode) {
+  all_modes <- get_from_env(paste0(model, "_modes"))
+  if (!(mode %in% all_modes)) {
+    rlang::abort(
+      glue::glue(
+        "'{mode}' is not a known mode for model `{model}()`."
+      )
+    )
+  }
+
+  engs <- get_from_env("shallow_learning_model")
+  engs <- vctrs::vec_slice(engs, engs$engine == eng)
+  engs <- vctrs::vec_slice(engs, engs$mode == mode)
+  if (nrow(engs) > 0) {
+    rlang::abort(
+      glue::glue(
+        "Engine '{eng}' already exists for `{model}()` with mode `{mode}`."
+      )
+    )
+  }
+
+  invisible(NULL)
+}
