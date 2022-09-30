@@ -30,7 +30,7 @@ set_new_model <- function(model) {
     paste0(model, "_args"),
     tibble::tibble(
       engine = character(0),
-      modelenv = character(0),
+      exposed = character(0),
       original = character(0),
       func = list(),
       has_submodel = logical(0)
