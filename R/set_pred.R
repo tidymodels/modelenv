@@ -138,7 +138,7 @@ check_pred_info <- function(pred_obj, type) {
   check_func_val(pred_obj$func)
 
   if (!is.list(pred_obj$args)) {
-    rlang::abort("The `args` element should be a list. ")
+    rlang::abort("The `args` element should be a list.")
   }
 
   invisible(NULL)

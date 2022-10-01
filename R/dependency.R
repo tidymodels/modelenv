@@ -61,7 +61,7 @@ set_dependency <- function(model, mode, eng, pkg) {
   }
   if (!any(mode == all_modes)) {
     rlang::abort(
-      glue::glue("mode '{mode}' is not a valid mode for '{model}'")
+      glue::glue("mode '{mode}' is not a valid mode for '{model}'.")
     )
   }
 

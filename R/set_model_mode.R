@@ -40,7 +40,7 @@ set_model_mode <- function(model, mode) {
 check_model_exists <- function(model) {
   if (rlang::is_missing(model) || length(model) != 1 || !is.character(model)) {
     rlang::abort(
-      "Please supply a character string for a model name (e.g. `'k_means'`)"
+      "Please supply a character string for a model name (e.g. `'k_means'`)."
     )
   }
 

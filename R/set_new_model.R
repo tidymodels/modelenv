@@ -60,14 +60,14 @@ set_new_model <- function(model) {
 check_model_doesnt_exist <- function(model) {
   if (rlang::is_missing(model) || length(model) != 1 || !is.character(model)) {
     rlang::abort(
-      "Please supply a character string for a model name (e.g. `'k_means'`)"
+      "Please supply a character string for a model name (e.g. `'k_means'`)."
     )
   }
 
   current <- get_model_env()
 
   if (any(current$models == model)) {
-    rlang::abort(glue::glue("Model `{model}` already exists"))
+    rlang::abort(glue::glue("Model `{model}` already exists."))
   }
 
   invisible(NULL)
