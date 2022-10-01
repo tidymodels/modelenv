@@ -19,8 +19,6 @@ set_env_val(name, value)
 environment.}
 
 \item{value}{A single value for a new value in the model environment.}
-
-\item{...}{Named values that will be assigned to the model environment.}
 }
 \description{
 These functions read and write to the environment where the package stores
@@ -40,4 +38,3 @@ set_env_val("example", 4)
 get_from_env("example")
 \dontshow{\}) # examplesIf}
 }
-\keyword{internal}
