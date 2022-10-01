@@ -42,8 +42,8 @@ set_dependency <- function(model, mode, eng, pkg) {
   # ----------------------------------------------------------------------------
   # Check engine
   has_engine <- model_info
-  has_engine <- vctrs::vec_slice(has_engine, vctrs::vec_unique_loc(has_engine))
   has_engine <- vctrs::vec_slice(has_engine, has_engine$engine == eng)
+  has_engine <- vctrs::vec_unique(has_engine)
 
   if (nrow(has_engine) != 1) {
     rlang::abort(
@@ -77,7 +77,7 @@ set_dependency <- function(model, mode, eng, pkg) {
     new_pkgs
   )
   # Take unique combinations in case packages have alread been registered
-  eng_pkgs <- vctrs::vec_slice(eng_pkgs, vctrs::vec_unique_loc(eng_pkgs))
+  eng_pkgs <- vctrs::vec_unique(eng_pkgs)
 
   eng_pkgs_groups <- eng_pkgs[, c("engine", "mode")]
 

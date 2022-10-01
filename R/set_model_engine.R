@@ -30,7 +30,7 @@ set_model_engine <- function(model, mode, eng) {
   old_eng <- get_from_env(model)
 
   engs <- vctrs::vec_rbind(old_eng, new_eng)
-  engs <- vctrs::vec_slice(engs, vctrs::vec_unique_loc(engs))
+  engs <- vctrs::vec_unique(engs)
 
   set_env_val(model, engs)
   set_model_mode(model, mode)
