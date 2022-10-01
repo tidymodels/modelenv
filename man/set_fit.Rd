@@ -14,8 +14,7 @@ set_fit(model, mode, eng, value)
 
 \item{eng}{A single character string for the model engine.}
 
-\item{value}{A list that conforms to the \code{fit_obj} or \code{pred_obj} description
-below, depending on context.}
+\item{value}{A list of values, described in the Details.}
 }
 \description{
 This function is used to register a fit method for a model, engine, and mode

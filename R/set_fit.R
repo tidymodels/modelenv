@@ -7,8 +7,7 @@
 #'  `"k_means"`, etc).
 #' @param mode A single character string for the model mode (e.g. "partition").
 #' @param eng A single character string for the model engine.
-#' @param value A list that conforms to the `fit_obj` or `pred_obj` description
-#'  below, depending on context.
+#' @param value A list of values, described in the Details.
 #' @details
 #'
 #' The list passed to `value` needs the following values:

@@ -20,8 +20,7 @@ etc).}
 \item{type}{A single character value for the type of prediction. Possible
 values are: \code{cluster} and \code{raw}.}
 
-\item{value}{A list that conforms to the \code{fit_obj} or \code{pred_obj} description
-below, depending on context.}
+\item{value}{A list of values, described in the Details.}
 }
 \description{
 This function is used to register prediction method information for a model,
