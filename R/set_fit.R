@@ -48,9 +48,10 @@
 #' @export
 set_fit <- function(model, mode, eng, value) {
   check_model_exists(model)
+  check_mode_val(mode)
   check_eng_val(eng)
-  check_spec_mode_engine_val(model, eng, mode)
   check_fit_info(value)
+  check_spec_mode_engine_val(model, eng, mode)
 
   model_info <- get_from_env(model)
   old_fits <- get_from_env(paste0(model, "_fit"))
@@ -116,7 +117,7 @@ get_fit <- function(model) {
 }
 
 check_fit_info <- function(fit_obj) {
-  if (is.null(fit_obj)) {
+  if (rlang::is_missing(fit_obj) || is.null(fit_obj)) {
     rlang::abort("The `fit` module cannot be NULL.")
   }
 
@@ -135,19 +136,20 @@ check_fit_info <- function(fit_obj) {
 
   # check optional data elements
   opt_nms <- c("data")
-  other_nms <- setdiff(exp_nms, names(fit_obj))
+  other_nms <- setdiff(names(fit_obj), exp_nms)
   has_opt_nms <- other_nms %in% opt_nms
   if (any(!has_opt_nms)) {
     msg <- glue::glue(
       "The `fit` module can only have optional elements: ",
-      glue::glue_collapse(glue::glue("`{exp_nms}`"), sep = ", ")
+      glue::glue_collapse(glue::glue("`{opt_nms}`"), sep = ", ")
     )
 
     rlang::abort(msg)
   }
+
   if (any(other_nms == "data")) {
     data_nms <- names(fit_obj$data)
-    if (length(data_nms == 0) || any(data_nms == "")) {
+    if (length(data_nms) == 0 || any(data_nms == "")) {
       rlang::abort("All elements of the `data` argument vector must be named.")
     }
   }
@@ -182,10 +184,6 @@ check_func_val <- function(func) {
       "elements 'pkg', 'range', 'trans', and 'values'.",
       "`func` and 'pkg' should both be single character strings."
     )
-
-  if (rlang::is_missing(func) || !is.vector(func)) {
-    rlang::abort(msg)
-  }
 
   nms <- sort(names(func))
 
