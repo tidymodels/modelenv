@@ -29,7 +29,7 @@
 ---
 
     Code
-      set_model_mode("glass", 0)
+      set_model_mode("glass", NULL)
     Error <rlang_error>
       Please supply a character string for a mode (e.g. `'partition'`).
 

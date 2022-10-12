@@ -36,7 +36,7 @@
 ---
 
     Code
-      set_model_engine("paper", 0)
+      set_model_engine("paper", NULL)
     Error <rlang_error>
       Please supply a character string for a mode (e.g. `'partition'`).
 
@@ -64,7 +64,7 @@
 ---
 
     Code
-      set_model_engine("street", "partition", 0)
+      set_model_engine("street", "partition", NULL)
     Error <rlang_error>
       Please supply a character string for an engine name (e.g. `'stats'`).
 

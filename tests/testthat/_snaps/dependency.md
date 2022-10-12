@@ -29,7 +29,7 @@
 ---
 
     Code
-      set_dependency("clip", 0)
+      set_dependency("clip", NULL)
     Error <rlang_error>
       Please supply a character string for a mode (e.g. `'partition'`).
 

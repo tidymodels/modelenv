@@ -37,6 +37,6 @@ test_that('set_model_mode() errors with wrong `mode` argument', {
   )
 
   expect_snapshot(error = TRUE,
-    set_model_mode("glass", 0)
+    set_model_mode("glass", NULL)
   )
 })

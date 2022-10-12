@@ -56,7 +56,7 @@ test_that('set_model_engine() errors with wrong `mode` argument', {
   )
 
   expect_snapshot(error = TRUE,
-    set_model_engine("paper", 0)
+    set_model_engine("paper", NULL)
   )
 
   expect_snapshot(error = TRUE,
@@ -77,6 +77,6 @@ test_that('set_model_engine() errors with wrong `engine` argument', {
   )
 
   expect_snapshot(error = TRUE,
-    set_model_engine("street", "partition", 0)
+    set_model_engine("street", "partition", NULL)
   )
 })

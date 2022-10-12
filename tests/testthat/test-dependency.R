@@ -74,7 +74,7 @@ test_that('set_dependency() errors with wrong `mode` argument', {
   )
 
   expect_snapshot(error = TRUE,
-    set_dependency("clip", 0)
+    set_dependency("clip", NULL)
   )
 
   expect_snapshot(error = TRUE,
