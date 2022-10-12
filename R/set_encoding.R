@@ -56,7 +56,7 @@ set_encoding <- function(model, mode, eng, options) {
   check_eng_val(eng)
   check_mode_val(mode)
   check_encodings(options)
-  check_spec_mode_engine_val(model, eng, mode)
+  check_spec_mode_engine_val(model, mode, eng)
 
   keys <- tibble::tibble(model = model, engine = eng, mode = mode)
   options <- tibble::as_tibble(options)

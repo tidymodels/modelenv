@@ -51,7 +51,7 @@ set_fit <- function(model, mode, eng, value) {
   check_mode_val(mode)
   check_eng_val(eng)
   check_fit_info(value)
-  check_spec_mode_engine_val(model, eng, mode)
+  check_spec_mode_engine_val(model, mode, eng)
 
   model_info <- get_from_env(model)
   old_fits <- get_from_env(paste0(model, "_fit"))
@@ -214,7 +214,7 @@ check_func_val <- function(func) {
   invisible(NULL)
 }
 
-check_spec_mode_engine_val <- function(model, eng, mode) {
+check_spec_mode_engine_val <- function(model, mode, eng) {
   all_modes <- get_from_env(paste0(model, "_modes"))
   if (!(mode %in% all_modes)) {
     rlang::abort(

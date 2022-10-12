@@ -62,7 +62,7 @@ set_pred <- function(model, mode, eng, type, value) {
   check_model_exists(model)
   check_mode_val(mode)
   check_eng_val(eng)
-  check_spec_mode_engine_val(model, eng, mode)
+  check_spec_mode_engine_val(model, mode, eng)
   check_pred_info(value, type)
   check_unregistered(model, mode, eng)
 
