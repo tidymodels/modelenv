@@ -1,48 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>/404.html</loc>
+    <loc>https://emilhvitfeldt.github.io/modelenv/404.html</loc>
   </url>
   <url>
-    <loc>/LICENSE-text.html</loc>
+    <loc>https://emilhvitfeldt.github.io/modelenv/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>/LICENSE.html</loc>
+    <loc>https://emilhvitfeldt.github.io/modelenv/LICENSE.html</loc>
   </url>
   <url>
-    <loc>/authors.html</loc>
+    <loc>https://emilhvitfeldt.github.io/modelenv/authors.html</loc>
   </url>
   <url>
-    <loc>/index.html</loc>
+    <loc>https://emilhvitfeldt.github.io/modelenv/index.html</loc>
   </url>
   <url>
-    <loc>/reference/get_model_env.html</loc>
+    <loc>https://emilhvitfeldt.github.io/modelenv/reference/get_model_env.html</loc>
   </url>
   <url>
-    <loc>/reference/index.html</loc>
+    <loc>https://emilhvitfeldt.github.io/modelenv/reference/index.html</loc>
   </url>
   <url>
-    <loc>/reference/set_dependency.html</loc>
+    <loc>https://emilhvitfeldt.github.io/modelenv/reference/set_dependency.html</loc>
   </url>
   <url>
-    <loc>/reference/set_encoding.html</loc>
+    <loc>https://emilhvitfeldt.github.io/modelenv/reference/set_encoding.html</loc>
   </url>
   <url>
-    <loc>/reference/set_fit.html</loc>
+    <loc>https://emilhvitfeldt.github.io/modelenv/reference/set_fit.html</loc>
   </url>
   <url>
-    <loc>/reference/set_model_arg.html</loc>
+    <loc>https://emilhvitfeldt.github.io/modelenv/reference/set_model_arg.html</loc>
   </url>
   <url>
-    <loc>/reference/set_model_engine.html</loc>
+    <loc>https://emilhvitfeldt.github.io/modelenv/reference/set_model_engine.html</loc>
   </url>
   <url>
-    <loc>/reference/set_model_mode.html</loc>
+    <loc>https://emilhvitfeldt.github.io/modelenv/reference/set_model_mode.html</loc>
   </url>
   <url>
-    <loc>/reference/set_new_model.html</loc>
+    <loc>https://emilhvitfeldt.github.io/modelenv/reference/set_new_model.html</loc>
   </url>
   <url>
-    <loc>/reference/set_pred.html</loc>
+    <loc>https://emilhvitfeldt.github.io/modelenv/reference/set_pred.html</loc>
   </url>
 </urlset>
