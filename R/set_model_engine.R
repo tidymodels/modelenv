@@ -56,7 +56,7 @@ check_mode_for_new_engine <- function(model, eng, mode) {
     )
   }
 
-  engs <- get_from_env("shallow_learning_model")
+  engs <- get_from_env(model)
   engs <- vctrs::vec_slice(engs, engs$engine == eng)
   engs <- vctrs::vec_slice(engs, engs$mode == mode)
   if (nrow(engs) > 0) {
