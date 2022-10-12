@@ -33,6 +33,7 @@
 #' @export
 set_dependency <- function(model, mode, eng, pkg) {
   check_model_exists(model)
+  check_mode_val(mode)
   check_eng_val(eng)
   check_pkg_val(pkg)
 
@@ -98,7 +99,7 @@ set_dependency <- function(model, mode, eng, pkg) {
   pkg_info <- vctrs::vec_rbind(pkg_info, eng_pkgs)
   pkg_info <- vctrs::vec_slice(
     pkg_info,
-    vctrs::vec_order(eng_pkgs[, c("engine", "mode")])
+    vctrs::vec_order(pkg_info[, c("engine", "mode")])
   )
 
   set_env_val(paste0(model, "_pkgs"), pkg_info)
