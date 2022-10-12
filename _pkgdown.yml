@@ -2,3 +2,26 @@ url: https://emilhvitfeldt.github.io/modelenv/
 template:
   bootstrap: 5
 
+reference:
+  - title: Register Models
+    desc: >
+      These functions are used together to register all the different types
+      of information that is needed for them to be used in their respective
+      tidymodels packages.
+    contents:
+    - set_new_model
+    - set_model_mode
+    - set_model_engine
+    - set_dependency
+    - set_model_arg
+    - set_fit
+    - set_encoding
+    - set_pred
+  - title: Model Environment
+    desc: >
+      modelenv provides an environment which is used to store the registered
+      models. These functions is how to access the underlying environment.
+    contents:
+    - get_model_env
+    - get_from_env
+    - set_env_val

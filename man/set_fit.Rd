@@ -2,9 +2,12 @@
 % Please edit documentation in R/set_fit.R
 \name{set_fit}
 \alias{set_fit}
+\alias{get_fit}
 \title{Register Fit method for Model}
 \usage{
 set_fit(model, mode, eng, value)
+
+get_fit(model)
 }
 \arguments{
 \item{model}{A single character string for the model type (e.g.

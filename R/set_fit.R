@@ -103,7 +103,7 @@ set_fit <- function(model, mode, eng, value) {
   invisible(NULL)
 }
 
-#' @rdname set_new_model
+#' @rdname set_fit
 #' @export
 get_fit <- function(model) {
   check_model_val(model)
