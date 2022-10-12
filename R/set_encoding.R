@@ -52,9 +52,11 @@
 #' @export
 set_encoding <- function(model, mode, eng, options) {
   check_model_exists(model)
+  check_mode_val(mode)
   check_eng_val(eng)
   check_mode_val(mode)
   check_encodings(options)
+  check_spec_mode_engine_val(model, eng, mode)
 
   keys <- tibble::tibble(model = model, engine = eng, mode = mode)
   options <- tibble::as_tibble(options)
@@ -84,7 +86,7 @@ get_encoding <- function(model) {
 }
 
 check_encodings <- function(x) {
-  if (!is.list(x)) {
+  if (rlang::is_missing(x) || !is.list(x)) {
     rlang::abort("`values` should be a list.")
   }
   req_args <- list(
@@ -118,6 +120,9 @@ check_encodings <- function(x) {
 is_discordant_info <- function(model, mode, eng, candidate,
                                pred_type = NULL, component = "fit") {
   current <- get_from_env(paste0(model, "_", component))
+  if (is.null(current)) {
+    return(TRUE)
+  }
   current <- vctrs::vec_slice(
     current,
     current$engine == eng & current$mode == mode
