@@ -27,21 +27,22 @@ test_that("set_pred() works", {
       mode = "partition",
       type = "raw",
       value = list(
-        list(pre = NULL,
-             post = NULL,
-             func = c(fun = "predict"),
-             args = list(
-               object = rlang::expr(object$fit),
-               newdata = rlang::expr(new_data),
-               type = "response"
-             )
+        list(
+          pre = NULL,
+          post = NULL,
+          func = c(fun = "predict"),
+          args = list(
+            object = rlang::expr(object$fit),
+            newdata = rlang::expr(new_data),
+            type = "response"
+          )
         )
       )
     )
   )
 })
 
-test_that('set_pred() errors with wrong `model` argument', {
+test_that("set_pred() errors with wrong `model` argument", {
   set_new_model("tent")
   set_model_mode("tent", "partition")
   set_model_engine("tent", "partition", "stats")
@@ -49,11 +50,13 @@ test_that('set_pred() errors with wrong `model` argument', {
   set_model_mode("shed", "partition")
   set_model_engine("shed", "partition", "stats")
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_pred("light")
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_pred(
       model = c("tent", "shed"),
       mode = "partition",
@@ -74,27 +77,31 @@ test_that('set_pred() errors with wrong `model` argument', {
   )
 })
 
-test_that('set_pred() errors with wrong `mode` argument', {
+test_that("set_pred() errors with wrong `mode` argument", {
   set_new_model("game")
   set_model_mode("game", "partition")
   set_model_engine("game", "partition", "stats")
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_pred("game")
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_pred("game", c("classification", "regression"))
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_pred("game", NULL)
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_pred(
       model = "game",
-      mode =  "not partition",
+      mode = "not partition",
       eng = "stats",
       type = "raw",
       value = list(
@@ -112,33 +119,38 @@ test_that('set_pred() errors with wrong `mode` argument', {
   )
 })
 
-test_that('set_pred() errors with wrong `engine` argument', {
+test_that("set_pred() errors with wrong `engine` argument", {
   set_new_model("dog")
   set_model_mode("dog", "partition")
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_pred("dog", "partition")
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_pred("dog", "partition", c("glmnet", "stats"))
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_model_engine("dog", "partition", NULL)
   )
 })
 
-test_that('set_pred() errors with wrong `value` argument', {
+test_that("set_pred() errors with wrong `value` argument", {
   set_new_model("trunk")
   set_model_mode("trunk", "partition")
   set_model_engine("trunk", "partition", "stats")
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_pred("trunk", "partition", "stats", "raw")
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_pred("trunk", "partition", "stats", "raw", NULL)
   )
 
@@ -275,5 +287,3 @@ test_that('set_pred() errors with wrong `value` argument', {
     )
   )
 })
-
-

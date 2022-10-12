@@ -20,7 +20,7 @@ test_that("set_fit() works", {
       engine = "stats",
       mode = "partition",
       value = list(
-          list(
+        list(
           interface = "formula",
           protect = c("formula", "data"),
           func = c(pkg = "stats", fun = "lm"),
@@ -46,7 +46,8 @@ test_that("set_fit() cannot be called multiple times", {
       defaults = list()
     )
   )
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_fit(
       model = "tape",
       mode = "partition",
@@ -61,7 +62,7 @@ test_that("set_fit() cannot be called multiple times", {
   )
 })
 
-test_that('set_fit() errors with wrong `model` argument', {
+test_that("set_fit() errors with wrong `model` argument", {
   set_new_model("ring")
   set_model_mode("ring", "partition")
   set_model_engine("ring", "partition", "stats")
@@ -69,11 +70,13 @@ test_that('set_fit() errors with wrong `model` argument', {
   set_model_mode("string", "partition")
   set_model_engine("string", "partition", "stats")
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_fit("light")
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_fit(
       model = c("bear", "rabbit"),
       mode = "partition",
@@ -88,27 +91,31 @@ test_that('set_fit() errors with wrong `model` argument', {
   )
 })
 
-test_that('set_fit() errors with wrong `mode` argument', {
+test_that("set_fit() errors with wrong `mode` argument", {
   set_new_model("camcorder")
   set_model_mode("camcorder", "partition")
   set_model_engine("camcorder", "partition", "stats")
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_fit("camcorder")
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_fit("camcorder", c("classification", "regression"))
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_fit("camcorder", NULL)
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_fit(
       model = "camcorder",
-      mode =  "not partition",
+      mode = "not partition",
       eng = "stats",
       value = list(
         interface = "formula",
@@ -120,33 +127,38 @@ test_that('set_fit() errors with wrong `mode` argument', {
   )
 })
 
-test_that('set_fit() errors with wrong `engine` argument', {
+test_that("set_fit() errors with wrong `engine` argument", {
   set_new_model("dice")
   set_model_mode("dice", "partition")
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_fit("dice", "partition")
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_fit("dice", "partition", c("glmnet", "stats"))
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_model_engine("dice", "partition", NULL)
   )
 })
 
-test_that('set_fit() errors with wrong `value` argument', {
+test_that("set_fit() errors with wrong `value` argument", {
   set_new_model("ladle")
   set_model_mode("ladle", "partition")
   set_model_engine("ladle", "partition", "stats")
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_fit("ladle", "partition", "stats")
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_fit("ladle", "partition", "stats", NULL)
   )
 
@@ -343,5 +355,3 @@ test_that('set_fit() errors with wrong `value` argument', {
     )
   )
 })
-
-

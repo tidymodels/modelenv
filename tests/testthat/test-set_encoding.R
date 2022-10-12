@@ -29,7 +29,7 @@ test_that("set_encoding() works", {
   )
 })
 
-test_that('set_encoding() errors with wrong `model` argument', {
+test_that("set_encoding() errors with wrong `model` argument", {
   set_new_model("mower")
   set_model_mode("mower", "partition")
   set_model_engine("mower", "partition", "stats")
@@ -37,11 +37,13 @@ test_that('set_encoding() errors with wrong `model` argument', {
   set_model_mode("stmower", "partition")
   set_model_engine("stmower", "partition", "stats")
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_encoding("light")
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_encoding(
       model = c("bear", "rabbit"),
       mode = "partition",
@@ -56,27 +58,31 @@ test_that('set_encoding() errors with wrong `model` argument', {
   )
 })
 
-test_that('set_encoding() errors with wrong `mode` argument', {
+test_that("set_encoding() errors with wrong `mode` argument", {
   set_new_model("sticker")
   set_model_mode("sticker", "partition")
   set_model_engine("sticker", "partition", "stats")
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_encoding("sticker")
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_encoding("sticker", c("classification", "regression"))
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_encoding("sticker", NULL)
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_encoding(
       model = "sticker",
-      mode =  "not partition",
+      mode = "not partition",
       eng = "stats",
       options = list(
         predictor_indicators = "traditional",
@@ -88,33 +94,38 @@ test_that('set_encoding() errors with wrong `mode` argument', {
   )
 })
 
-test_that('set_encoding() errors with wrong `engine` argument', {
+test_that("set_encoding() errors with wrong `engine` argument", {
   set_new_model("lantern")
   set_model_mode("lantern", "partition")
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_encoding("lantern", "partition")
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_encoding("lantern", "partition", c("glmnet", "stats"))
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_model_engine("lantern", "partition", NULL)
   )
 })
 
-test_that('set_encoding() errors with wrong `value` argument', {
+test_that("set_encoding() errors with wrong `value` argument", {
   set_new_model("chain")
   set_model_mode("chain", "partition")
   set_model_engine("chain", "partition", "stats")
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_encoding("chain", "partition", "stats")
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_encoding("chain", "partition", "stats", NULL)
   )
 
@@ -190,5 +201,3 @@ test_that('set_encoding() errors with wrong `value` argument', {
     )
   )
 })
-
-

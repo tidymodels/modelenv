@@ -43,7 +43,7 @@ test_that("set_dependency() don't store duplicates", {
   )
 })
 
-test_that('set_dependency() errors with wrong `model` argument', {
+test_that("set_dependency() errors with wrong `model` argument", {
   set_new_model("bear")
   set_model_mode("bear", "partition")
   set_model_engine("bear", "partition", "stats")
@@ -51,68 +51,80 @@ test_that('set_dependency() errors with wrong `model` argument', {
   set_model_mode("rabbit", "partition")
   set_model_engine("rabbit", "partition", "stats")
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_dependency("polarbear")
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_dependency(c("bear", "rabbit"), "partition", "stats", "stats")
   )
 })
 
-test_that('set_dependency() errors with wrong `mode` argument', {
+test_that("set_dependency() errors with wrong `mode` argument", {
   set_new_model("clip")
   set_model_mode("clip", "partition")
   set_model_engine("clip", "partition", "stats")
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_dependency("clip")
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_dependency("clip", c("classification", "regression"))
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_dependency("clip", NULL)
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_dependency("clip", "not partition", "stats", "stats")
   )
 })
 
-test_that('set_dependency() errors with wrong `engine` argument', {
+test_that("set_dependency() errors with wrong `engine` argument", {
   set_new_model("hamper")
   set_model_mode("hamper", "partition")
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_dependency("hamper", "partition")
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_dependency("hamper", "partition", c("glmnet", "stats"))
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_model_engine("hamper", "partition", NULL)
   )
 })
 
-test_that('set_dependency() errors with wrong `pkg` argument', {
+test_that("set_dependency() errors with wrong `pkg` argument", {
   set_new_model("duck")
   set_model_mode("duck", "partition")
   set_model_engine("duck", "partition", "stats")
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_dependency("duck", "partition", "stats")
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_dependency("duck", "partition", "stats", c("glmnet", "stats"))
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_dependency("duck", "partition", "stats", NULL)
   )
 })

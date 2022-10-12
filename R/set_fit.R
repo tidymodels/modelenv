@@ -85,10 +85,10 @@ set_fit <- function(model, mode, eng, value) {
   }
 
   new_fit <- tibble::tibble(
-      engine = eng,
-      mode = mode,
-      value = list(value)
-    )
+    engine = eng,
+    mode = mode,
+    value = list(value)
+  )
 
   updated <- try(vctrs::vec_rbind(old_fits, new_fit), silent = TRUE)
   if (inherits(updated, "try-error")) {

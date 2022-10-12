@@ -62,8 +62,13 @@ set_encoding <- function(model, mode, eng, options) {
   options <- tibble::as_tibble(options)
   new_values <- vctrs::vec_cbind(keys, options)
 
-  enc_check <- is_discordant_info(model, mode, eng, new_values,
-                                  component = "encoding")
+  enc_check <- is_discordant_info(
+    model = model,
+    mode = mode,
+    eng = eng,
+    candidate = new_values,
+    component = "encoding"
+  )
   if (!enc_check) {
     return(invisible(NULL))
   }

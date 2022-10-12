@@ -27,7 +27,7 @@ test_that("set_model_arg() works", {
   )
 })
 
-test_that('set_model_arg() errors with wrong `model` argument', {
+test_that("set_model_arg() errors with wrong `model` argument", {
   set_new_model("phone")
   set_model_mode("phone", "partition")
   set_model_engine("phone", "partition", "stats")
@@ -35,47 +35,54 @@ test_that('set_model_arg() errors with wrong `model` argument', {
   set_model_mode("sock", "partition")
   set_model_engine("sock", "partition", "stats")
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_model_arg("light")
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_model_arg(
       model = c("phone", "sock")
     )
   )
 })
 
-test_that('set_model_arg() errors with wrong `engine` argument', {
+test_that("set_model_arg() errors with wrong `engine` argument", {
   set_new_model("thermos")
   set_model_mode("thermos", "partition")
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_model_arg("thermos")
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_model_arg("thermos", c("glmnet", "stats"))
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_model_arg("thermos", NULL)
   )
 })
 
-test_that('set_model_arg() errors with wrong `exposed` argument', {
+test_that("set_model_arg() errors with wrong `exposed` argument", {
   set_new_model("marker")
   set_model_mode("marker", "partition")
   set_model_engine("marker", "partition", "stats")
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_model_arg(
       model = "marker",
       eng = "stats"
     )
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_model_arg(
       model = "marker",
       eng = "stats",
@@ -83,7 +90,8 @@ test_that('set_model_arg() errors with wrong `exposed` argument', {
     )
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_model_arg(
       model = "marker",
       eng = "stats",
@@ -92,12 +100,13 @@ test_that('set_model_arg() errors with wrong `exposed` argument', {
   )
 })
 
-test_that('set_model_arg() errors with wrong `original` argument', {
+test_that("set_model_arg() errors with wrong `original` argument", {
   set_new_model("mustache")
   set_model_mode("mustache", "partition")
   set_model_engine("mustache", "partition", "stats")
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_model_arg(
       model = "mustache",
       eng = "stats",
@@ -105,7 +114,8 @@ test_that('set_model_arg() errors with wrong `original` argument', {
     )
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_model_arg(
       model = "mustache",
       eng = "stats",
@@ -114,7 +124,8 @@ test_that('set_model_arg() errors with wrong `original` argument', {
     )
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_model_arg(
       model = "mustache",
       eng = "stats",
@@ -124,12 +135,13 @@ test_that('set_model_arg() errors with wrong `original` argument', {
   )
 })
 
-test_that('set_model_arg() errors with wrong `func` argument', {
+test_that("set_model_arg() errors with wrong `func` argument", {
   set_new_model("unicorn")
   set_model_mode("unicorn", "partition")
   set_model_engine("unicorn", "partition", "stats")
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_model_arg(
       model = "unicorn",
       eng = "stats",
@@ -138,7 +150,8 @@ test_that('set_model_arg() errors with wrong `func` argument', {
     )
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_model_arg(
       model = "unicorn",
       eng = "stats",
@@ -148,23 +161,25 @@ test_that('set_model_arg() errors with wrong `func` argument', {
     )
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_model_arg(
-        model = "unicorn",
-        eng = "stats",
-        exposed = "method",
-        original = "method",
-        func = NULL
+      model = "unicorn",
+      eng = "stats",
+      exposed = "method",
+      original = "method",
+      func = NULL
     )
   )
 })
 
-test_that('set_model_arg() errors with wrong `has_submodel` argument', {
+test_that("set_model_arg() errors with wrong `has_submodel` argument", {
   set_new_model("velcro")
   set_model_mode("velcro", "partition")
   set_model_engine("velcro", "partition", "stats")
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_model_arg(
       model = "velcro",
       eng = "stats",
@@ -174,7 +189,8 @@ test_that('set_model_arg() errors with wrong `has_submodel` argument', {
     )
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_model_arg(
       model = "velcro",
       eng = "stats",
@@ -185,7 +201,8 @@ test_that('set_model_arg() errors with wrong `has_submodel` argument', {
     )
   )
 
-  expect_snapshot(error = TRUE,
+  expect_snapshot(
+    error = TRUE,
     set_model_arg(
       model = "velcro",
       eng = "stats",
@@ -196,4 +213,3 @@ test_that('set_model_arg() errors with wrong `has_submodel` argument', {
     )
   )
 })
-

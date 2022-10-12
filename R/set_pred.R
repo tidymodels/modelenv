@@ -67,14 +67,20 @@ set_pred <- function(model, mode, eng, type, value) {
   check_unregistered(model, mode, eng)
 
   new_pred <- tibble::tibble(
-      engine = eng,
-      mode = mode,
-      type = type,
-      value = list(value)
-    )
+    engine = eng,
+    mode = mode,
+    type = type,
+    value = list(value)
+  )
 
-  pred_check <- is_discordant_info(model, mode, eng, new_pred, pred_type = type,
-                                   component = "predict")
+  pred_check <- is_discordant_info(
+    model = model,
+    mode = mode,
+    eng = eng,
+    candidate = new_pred,
+    pred_type = type,
+    component = "predict"
+  )
   if (!pred_check) {
     return(invisible(NULL))
   }
