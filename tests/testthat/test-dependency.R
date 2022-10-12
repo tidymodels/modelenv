@@ -99,7 +99,7 @@ test_that('set_dependency() errors with wrong `engine` argument', {
   )
 })
 
-test_that('set_dependency() errors with wrong `engine` argument', {
+test_that('set_dependency() errors with wrong `pkg` argument', {
   set_new_model("duck")
   set_model_mode("duck", "partition")
   set_model_engine("duck", "partition", "stats")

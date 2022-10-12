@@ -61,7 +61,7 @@
     Error <rlang_error>
       Please supply a character string for an engine name (e.g. `'stats'`).
 
----
+# set_dependency() errors with wrong `pkg` argument
 
     Code
       set_dependency("duck", "partition", "stats")
