@@ -4,6 +4,10 @@
 # modelenv
 
 <!-- badges: start -->
+
+[![Codecov test
+coverage](https://codecov.io/gh/EmilHvitfeldt/modelenv/branch/main/graph/badge.svg)](https://app.codecov.io/gh/EmilHvitfeldt/modelenv?branch=main)
+[![R-CMD-check](https://github.com/EmilHvitfeldt/modelenv/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/EmilHvitfeldt/modelenv/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 modelenv is a *developer focused* package designed to provide tools to
