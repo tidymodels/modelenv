@@ -59,7 +59,7 @@
 #' get_pred_type("shallow_learning_model", "cluster")$value
 #' @export
 set_pred <- function(model, mode, eng, type, value) {
-  check_model_exists(model)
+  check_model_val(model)
   check_mode_val(mode)
   check_eng_val(eng)
   check_spec_mode_engine_val(model, mode, eng)
@@ -93,7 +93,7 @@ set_pred <- function(model, mode, eng, type, value) {
 #' @rdname set_pred
 #' @export
 get_pred_type <- function(model, type) {
-  check_model_exists(model)
+  check_model_val(model)
   pred_name <- paste0(model, "_predict")
   if (!any(pred_name != rlang::env_names(get_model_env()))) {
     rlang::abort(

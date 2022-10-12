@@ -32,7 +32,7 @@
 #' get_dependency("shallow_learning_model")$pkg
 #' @export
 set_dependency <- function(model, mode, eng, pkg) {
-  check_model_exists(model)
+  check_model_val(model)
   check_mode_val(mode)
   check_eng_val(eng)
   check_pkg_val(pkg)
@@ -110,7 +110,7 @@ set_dependency <- function(model, mode, eng, pkg) {
 #' @rdname set_dependency
 #' @export
 get_dependency <- function(model) {
-  check_model_exists(model)
+  check_model_val(model)
   pkg_name <- paste0(model, "_pkgs")
   if (!any(pkg_name != rlang::env_names(get_model_env()))) {
     rlang::abort(

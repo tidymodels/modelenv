@@ -47,7 +47,7 @@
 #' get_fit("shallow_learning_model")$value
 #' @export
 set_fit <- function(model, mode, eng, value) {
-  check_model_exists(model)
+  check_model_val(model)
   check_mode_val(mode)
   check_eng_val(eng)
   check_fit_info(value)
@@ -106,7 +106,7 @@ set_fit <- function(model, mode, eng, value) {
 #' @rdname set_new_model
 #' @export
 get_fit <- function(model) {
-  check_model_exists(model)
+  check_model_val(model)
   fit_name <- paste0(model, "_fit")
   if (!any(fit_name != rlang::env_names(get_model_env()))) {
     rlang::abort(
@@ -209,67 +209,6 @@ check_func_val <- function(func) {
   }
   if (any(nms == "pkg") && !is.character(func[["pkg"]])) {
     rlang::abort(msg)
-  }
-
-  invisible(NULL)
-}
-
-check_spec_mode_engine_val <- function(model, mode, eng) {
-  all_modes <- get_from_env(paste0(model, "_modes"))
-  if (!(mode %in% all_modes)) {
-    rlang::abort(
-      glue::glue("'{mode}' is not a known mode for model `{model}()`.")
-    )
-  }
-
-  model_info <- rlang::env_get(get_model_env(), model)
-
-  # Cases where the model definition is in modelenv but all of the engines
-  # are contained in a different package
-  if (nrow(model_info) == 0) {
-    check_mode_with_no_engine(model, mode)
-    return(invisible(NULL))
-  }
-
-  # ------------------------------------------------------------------------------
-  # First check engine against any mode for the given model class
-
-  spec_engs <- model_info$engine
-  # engine is allowed to be NULL
-  if (!is.null(eng) && !(eng %in% spec_engs)) {
-    rlang::abort(
-      paste0(
-        "Engine '", eng, "' is not supported for `", model, "()`. See ",
-        "`show_engines('", model, "')`."
-      )
-    )
-  }
-
-  # ----------------------------------------------------------------------------
-  # Check modes based on model and engine
-
-  spec_modes <- model_info$mode
-  if (!is.null(eng)) {
-    spec_modes <- spec_modes[model_info$engine == eng]
-  }
-  spec_modes <- unique(c("unknown", spec_modes))
-
-  if (is.null(mode) || length(mode) > 1) {
-    stop_incompatible_mode(spec_modes, eng)
-  } else if (!(mode %in% spec_modes)) {
-    stop_incompatible_mode(spec_modes, eng)
-  }
-
-  # ----------------------------------------------------------------------------
-  # Check engine based on model and model
-
-  # How check for compatibility with the chosen mode (if any)
-  if (!is.null(mode) && mode != "unknown") {
-    spec_engs <- spec_engs[model_info$mode == mode]
-  }
-  spec_engs <- unique(spec_engs)
-  if (!is.null(eng) && !(eng %in% spec_engs)) {
-    stop_incompatible_engine(spec_engs, mode)
   }
 
   invisible(NULL)

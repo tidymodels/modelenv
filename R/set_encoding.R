@@ -51,7 +51,7 @@
 #' get_encoding("shallow_learning_model")$value
 #' @export
 set_encoding <- function(model, mode, eng, options) {
-  check_model_exists(model)
+  check_model_val(model)
   check_mode_val(mode)
   check_eng_val(eng)
   check_mode_val(mode)
@@ -80,7 +80,7 @@ set_encoding <- function(model, mode, eng, options) {
 #' @rdname set_encoding
 #' @export
 get_encoding <- function(model) {
-  check_model_exists(model)
+  check_model_val(model)
   nm <- paste0(model, "_encoding")
   get_from_env(nm)
 }

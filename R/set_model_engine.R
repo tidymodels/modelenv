@@ -21,7 +21,7 @@
 #' get_from_env("shallow_learning_model")
 #' @export
 set_model_engine <- function(model, mode, eng) {
-  check_model_exists(model)
+  check_model_val(model)
   check_mode_val(mode)
   check_eng_val(eng)
   check_mode_for_new_engine(model, eng, mode)
@@ -34,15 +34,6 @@ set_model_engine <- function(model, mode, eng) {
 
   set_env_val(model, engs)
   set_model_mode(model, mode)
-  invisible(NULL)
-}
-
-check_eng_val <- function(eng) {
-  if (rlang::is_missing(eng) || length(eng) != 1 || !is.character(eng)) {
-    rlang::abort(
-      "Please supply a character string for an engine name (e.g. `'stats'`)."
-    )
-  }
   invisible(NULL)
 }
 

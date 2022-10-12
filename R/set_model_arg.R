@@ -40,7 +40,7 @@
 #' get_model_arg("shallow_learning_model", "stats")$func
 #' @export
 set_model_arg <- function(model, eng, exposed, original, func, has_submodel) {
-  check_model_exists(model)
+  check_model_val(model)
   check_eng_val(eng)
   check_arg_val(exposed)
   check_arg_val(original)
