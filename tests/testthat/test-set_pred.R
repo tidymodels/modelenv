@@ -288,6 +288,33 @@ test_that("set_pred() errors with wrong `value` argument", {
   )
 })
 
+test_that("set_pred() errors with wrong `type` argument", {
+  set_new_model("scroll")
+  set_model_mode("scroll", "partition")
+  set_model_engine("scroll", "partition", "stats")
+
+  expect_snapshot(
+    error = TRUE,
+    set_pred(
+      model = "scroll",
+      mode = "partition",
+      eng = "stats",
+      type = "not raw",
+      value = list(
+        pre = NULL,
+        post = NULL,
+        func = c(fun = "predict"),
+        args =
+          list(
+            object = rlang::expr(object$fit),
+            newdata = rlang::expr(new_data),
+            type = "response"
+          )
+      )
+    )
+  )
+})
+
 test_that("is_discordant_info() triggers for set_pred()", {
   set_new_model("diamond")
   set_model_mode("diamond", "partition")
