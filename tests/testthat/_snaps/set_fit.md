@@ -212,6 +212,15 @@
     Error <rlang_error>
       The `defaults` element should be a list: 
 
+---
+
+    Code
+      set_fit(model = "ladle", mode = "partition", eng = "stats", value = list(
+        interface = "formula", protect = c("formula", "data"), func = c(pkg = "stats"),
+        defaults = list()))
+    Error <rlang_error>
+      `func` should be a named vector with element 'fun' and the optional  elements 'pkg', 'range', 'trans', and 'values'. `func` and 'pkg' should both be single character strings.
+
 # set_fit() errors if engine doesn't match
 
     Code

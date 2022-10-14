@@ -56,20 +56,6 @@ set_fit <- function(model, mode, eng, value) {
   model_info <- get_from_env(model)
   old_fits <- get_from_env(paste0(model, "_fit"))
 
-  has_engine <- vctrs::vec_slice(
-    model_info,
-    model_info$engine == eng & model_info$mode == mode
-  )
-
-  if (nrow(has_engine) != 1) {
-    rlang::abort(
-      glue::glue(
-        "The combination of '{eng}' and mode '{mode}' has not ",
-        "been registered for model '{model}'."
-      )
-    )
-  }
-
   has_fit <- vctrs::vec_slice(
     old_fits,
     old_fits$engine == eng & old_fits$mode == mode
