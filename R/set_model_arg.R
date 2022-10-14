@@ -58,11 +58,7 @@ set_model_arg <- function(model, eng, exposed, original, func, has_submodel) {
       has_submodel = has_submodel
     )
 
-  updated <- try(vctrs::vec_rbind(old_args, new_arg), silent = TRUE)
-  if (inherits(updated, "try-error")) {
-    rlang::abort("An error occured when adding the new argument.")
-  }
-
+  updated <- vctrs::vec_rbind(old_args, new_arg)
   updated <- vctrs::vec_unique(updated)
   set_env_val(paste0(model, "_args"), updated)
 
