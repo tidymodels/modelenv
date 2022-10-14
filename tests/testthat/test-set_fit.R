@@ -355,3 +355,24 @@ test_that("set_fit() errors with wrong `value` argument", {
     )
   )
 })
+
+test_that("set_fit() errors if engine doesn't match", {
+  set_new_model("whale")
+  set_model_mode("whale", "partition")
+  set_model_engine("whale", "partition", "stats")
+
+  expect_snapshot(
+    error = TRUE,
+    set_fit(
+      model = "whale",
+      mode = "partition",
+      eng = "not stats",
+      value = list(
+        interface = "formula",
+        protect = c("formula", "data"),
+        func = c(pkg = "stats", fun = "lm"),
+        defaults = list()
+      )
+    )
+  )
+})

@@ -203,3 +203,12 @@
     Error <rlang_error>
       `func` should be a named vector with element 'fun' and the optional  elements 'pkg', 'range', 'trans', and 'values'. `func` and 'pkg' should both be single character strings.
 
+# set_fit() errors if engine doesn't match
+
+    Code
+      set_fit(model = "whale", mode = "partition", eng = "not stats", value = list(
+        interface = "formula", protect = c("formula", "data"), func = c(pkg = "stats",
+          fun = "lm"), defaults = list()))
+    Error <rlang_error>
+      Engine 'not stats' is not supported for `whale()`. See `show_engines('whale')`.
+
