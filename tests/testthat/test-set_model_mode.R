@@ -1,5 +1,13 @@
 test_that("set_model_mode() works", {
   set_new_model("carrot")
+
+  env_objs <- c("carrot", "carrot_args", "carrot_fit", "carrot_modes",
+                "carrot_pkgs", "carrot_predict")
+
+  expect_true(
+    all(env_objs %in% rlang::env_names(get_model_env()))
+  )
+
   set_model_mode("carrot", "classification")
 
   expect_equal(get_from_env("carrot_modes"), c("unknown", "classification"))

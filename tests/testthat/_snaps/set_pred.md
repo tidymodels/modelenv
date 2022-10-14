@@ -140,3 +140,21 @@
     Error <rlang_error>
       The `args` element should be a list.
 
+# set_pred() errors with wrong `type` argument
+
+    Code
+      set_pred(model = "scroll", mode = "partition", eng = "stats", type = "not raw",
+        value = list(pre = NULL, post = NULL, func = c(fun = "predict"), args = list(
+          object = rlang::expr(object$fit), newdata = rlang::expr(new_data), type = "response")))
+    Error <rlang_error>
+      The prediction type should be one of: 'cluster', 'raw'
+
+# is_discordant_info() triggers for set_pred()
+
+    Code
+      set_pred(model = "diamond", mode = "partition", eng = "stats", type = "raw",
+        value = list(pre = NULL, post = NULL, func = c(fun = "not predict"), args = list(
+          object = rlang::expr(object$fit), newdata = rlang::expr(new_data), type = "response")))
+    Error <rlang_error>
+      The combination of engine 'stats' and mode 'partition' and prediction type 'raw' already has predict data for model 'diamond' and the new information being registered is different.
+

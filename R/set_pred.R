@@ -64,7 +64,6 @@ set_pred <- function(model, mode, eng, type, value) {
   check_eng_val(eng)
   check_spec_mode_engine_val(model, mode, eng)
   check_pred_info(value, type)
-  check_unregistered(model, mode, eng)
 
   new_pred <- tibble::tibble(
     engine = eng,
@@ -86,10 +85,7 @@ set_pred <- function(model, mode, eng, type, value) {
   }
 
   old_pred <- get_from_env(paste0(model, "_predict"))
-  updated <- try(vctrs::vec_rbind(old_pred, new_pred), silent = TRUE)
-  if (inherits(updated, "try-error")) {
-    rlang::abort("An error occured when adding the new fit module.")
-  }
+  updated <- vctrs::vec_rbind(old_pred, new_pred)
 
   set_env_val(paste0(model, "_predict"), updated)
 
@@ -101,17 +97,7 @@ set_pred <- function(model, mode, eng, type, value) {
 get_pred_type <- function(model, type) {
   check_model_val(model)
   pred_name <- paste0(model, "_predict")
-  if (!any(pred_name != rlang::env_names(get_model_env()))) {
-    rlang::abort(
-      glue::glue("`{model}` does not have any `pred` methods in modelenv.")
-    )
-  }
   all_preds <- rlang::env_get(get_model_env(), pred_name)
-  if (!any(all_preds$type == type)) {
-    rlang::abort(
-      glue::glue("`{model}` does not have any prediction methods in modelenv.")
-    )
-  }
   vctrs::vec_slice(all_preds, all_preds$type == type)
 }
 
@@ -148,23 +134,5 @@ check_pred_info <- function(pred_obj, type) {
     rlang::abort("The `args` element should be a list.")
   }
 
-  invisible(NULL)
-}
-
-check_unregistered <- function(model, mode, eng) {
-  model_info <- get_from_env(model)
-  has_engine <- vctrs::vec_slice(
-    model_info,
-    model_info$engine == eng & model_info$mode == mode
-  )
-
-  if (nrow(has_engine) != 1) {
-    rlang::abort(
-      glue::glue(
-        "The combination of engine '{eng}' and mode '{mode}' has not ",
-        "been registered for model '{model}'."
-      )
-    )
-  }
   invisible(NULL)
 }

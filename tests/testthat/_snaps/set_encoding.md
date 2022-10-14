@@ -123,3 +123,12 @@
     Error <rlang_error>
       The values passed to `set_encoding()` had extra arguments: 'additional'
 
+# is_discordant_info() triggers for set_encoding()
+
+    Code
+      set_encoding(model = "longs", mode = "partition", eng = "stats", options = list(
+        predictor_indicators = "traditional", compute_intercept = FALSE,
+        remove_intercept = TRUE, allow_sparse_x = FALSE))
+    Error <rlang_error>
+      The combination of engine 'stats' and mode 'partition'  already has encoding data for model 'longs' and the new information being registered is different.
+

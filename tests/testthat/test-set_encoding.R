@@ -246,3 +246,68 @@ test_that("set_encoding() errors with wrong `value` argument", {
     )
   )
 })
+
+test_that("is_discordant_info() triggers for set_encoding()", {
+  set_new_model("longs")
+  set_model_mode("longs", "partition")
+  set_model_engine("longs", "partition", "stats")
+
+  set_encoding(
+    model = "longs",
+    mode = "partition",
+    eng = "stats",
+    options = list(
+      predictor_indicators = "traditional",
+      compute_intercept = TRUE,
+      remove_intercept = TRUE,
+      allow_sparse_x = FALSE
+    )
+  )
+
+  expect_snapshot(
+    error = TRUE,
+    set_encoding(
+      model = "longs",
+      mode = "partition",
+      eng = "stats",
+      options = list(
+        predictor_indicators = "traditional",
+        compute_intercept = FALSE,
+        remove_intercept = TRUE,
+        allow_sparse_x = FALSE
+      )
+    )
+  )
+})
+
+test_that("set_encoding() can be called multiple times", {
+  set_new_model("shorts")
+  set_model_mode("shorts", "partition")
+  set_model_engine("shorts", "partition", "stats")
+
+  set_encoding(
+    model = "shorts",
+    mode = "partition",
+    eng = "stats",
+    options = list(
+      predictor_indicators = "traditional",
+      compute_intercept = TRUE,
+      remove_intercept = TRUE,
+      allow_sparse_x = FALSE
+    )
+  )
+
+  expect_no_error(
+    set_encoding(
+      model = "shorts",
+      mode = "partition",
+      eng = "stats",
+      options = list(
+        predictor_indicators = "traditional",
+        compute_intercept = TRUE,
+        remove_intercept = TRUE,
+        allow_sparse_x = FALSE
+      )
+    )
+  )
+})

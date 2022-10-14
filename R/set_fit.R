@@ -56,20 +56,6 @@ set_fit <- function(model, mode, eng, value) {
   model_info <- get_from_env(model)
   old_fits <- get_from_env(paste0(model, "_fit"))
 
-  has_engine <- vctrs::vec_slice(
-    model_info,
-    model_info$engine == eng & model_info$mode == mode
-  )
-
-  if (nrow(has_engine) != 1) {
-    rlang::abort(
-      glue::glue(
-        "The combination of '{eng}' and mode '{mode}' has not ",
-        "been registered for model '{model}'."
-      )
-    )
-  }
-
   has_fit <- vctrs::vec_slice(
     old_fits,
     old_fits$engine == eng & old_fits$mode == mode
@@ -90,10 +76,7 @@ set_fit <- function(model, mode, eng, value) {
     value = list(value)
   )
 
-  updated <- try(vctrs::vec_rbind(old_fits, new_fit), silent = TRUE)
-  if (inherits(updated, "try-error")) {
-    rlang::abort("An error occured when adding the new fit module.")
-  }
+  updated <- vctrs::vec_rbind(old_fits, new_fit)
 
   set_env_val(
     paste0(model, "_fit"),
@@ -108,11 +91,6 @@ set_fit <- function(model, mode, eng, value) {
 get_fit <- function(model) {
   check_model_val(model)
   fit_name <- paste0(model, "_fit")
-  if (!any(fit_name != rlang::env_names(get_model_env()))) {
-    rlang::abort(
-      glue::glue("`{model}` does not have a `fit` method in modelenv.")
-    )
-  }
   rlang::env_get(get_model_env(), fit_name)
 }
 
@@ -212,53 +190,4 @@ check_func_val <- function(func) {
   }
 
   invisible(NULL)
-}
-
-check_mode_with_no_engine <- function(model, mode) {
-  spec_modes <- get_from_env(paste0(model, "_modes"))
-  if (!(mode %in% spec_modes)) {
-    stop_incompatible_mode(spec_modes, model = model)
-  }
-}
-
-#' Error handling for incompatible modes
-#'
-#' @param spec_modes Character vector of modes
-#' @param eng Character of specific engine
-#' @param model Character of specific model
-#'
-#' @return An error
-#' @export
-#' @examples
-#' library(rlang)
-#' tmp <- catch_cnd(stop_incompatible_mode("partition"))
-stop_incompatible_mode <- function(spec_modes, eng = NULL, model = NULL) {
-  if (is.null(eng) & is.null(model)) {
-    msg <- "Available modes are: "
-  }
-  if (!is.null(eng) & is.null(model)) {
-    msg <- glue::glue("Available modes for engine {eng} are: ")
-  }
-  if (is.null(eng) & !is.null(model)) {
-    msg <- glue::glue("Available modes for model type {model} are: ")
-  }
-  if (!is.null(eng) & !is.null(model)) {
-    msg <- glue::glue(
-      "Available modes for model type {model} with engine {eng} are: "
-    )
-  }
-
-  msg <- glue::glue(
-    msg,
-    glue::glue_collapse(glue::glue("'{spec_modes}'"), sep = ", ")
-  )
-  rlang::abort(msg)
-}
-
-stop_incompatible_engine <- function(spec_engs, mode) {
-  msg <- glue::glue(
-    "Available engines for mode {mode} are: ",
-    glue::glue_collapse(glue::glue("'{spec_engs}'"), sep = ", ")
-  )
-  rlang::abort(msg)
 }

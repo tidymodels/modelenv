@@ -69,3 +69,15 @@ test_that("set_new_model can be called multiple times", {
     set_new_model("starfish")
   )
 })
+
+test_that("set_env_val() errors currectly", {
+  expect_snapshot(
+    error = TRUE,
+    set_env_val(c("models", "modes"), NULL)
+  )
+
+  expect_snapshot(
+    error = TRUE,
+    set_env_val(1, NULL)
+  )
+})

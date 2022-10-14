@@ -287,3 +287,118 @@ test_that("set_pred() errors with wrong `value` argument", {
     )
   )
 })
+
+test_that("set_pred() errors with wrong `type` argument", {
+  set_new_model("scroll")
+  set_model_mode("scroll", "partition")
+  set_model_engine("scroll", "partition", "stats")
+
+  expect_snapshot(
+    error = TRUE,
+    set_pred(
+      model = "scroll",
+      mode = "partition",
+      eng = "stats",
+      type = "not raw",
+      value = list(
+        pre = NULL,
+        post = NULL,
+        func = c(fun = "predict"),
+        args =
+          list(
+            object = rlang::expr(object$fit),
+            newdata = rlang::expr(new_data),
+            type = "response"
+          )
+      )
+    )
+  )
+})
+
+test_that("is_discordant_info() triggers for set_pred()", {
+  set_new_model("diamond")
+  set_model_mode("diamond", "partition")
+  set_model_engine("diamond", "partition", "stats")
+
+  set_pred(
+    model = "diamond",
+    mode = "partition",
+    eng = "stats",
+    type = "raw",
+    value = list(
+      pre = NULL,
+      post = NULL,
+      func = c(fun = "predict"),
+      args =
+        list(
+          object = rlang::expr(object$fit),
+          newdata = rlang::expr(new_data),
+          type = "response"
+        )
+    )
+  )
+
+  expect_snapshot(
+    error = TRUE,
+    set_pred(
+      model = "diamond",
+      mode = "partition",
+      eng = "stats",
+      type = "raw",
+      value = list(
+        pre =  NULL,
+        post = NULL,
+        func = c(fun = "not predict"),
+        args =
+          list(
+            object = rlang::expr(object$fit),
+            newdata = rlang::expr(new_data),
+            type = "response"
+          )
+      )
+    )
+  )
+})
+
+test_that("set_pred() can be called multiple times", {
+  set_new_model("firetruck")
+  set_model_mode("firetruck", "partition")
+  set_model_engine("firetruck", "partition", "stats")
+  set_pred(
+    model = "firetruck",
+    mode = "partition",
+    eng = "stats",
+    type = "raw",
+    value = list(
+      pre = NULL,
+      post = NULL,
+      func = c(fun = "predict"),
+      args =
+        list(
+          object = rlang::expr(object$fit),
+          newdata = rlang::expr(new_data),
+          type = "response"
+        )
+    )
+  )
+
+  expect_no_error(
+    set_pred(
+      model = "firetruck",
+      mode = "partition",
+      eng = "stats",
+      type = "raw",
+      value = list(
+        pre = NULL,
+        post = NULL,
+        func = c(fun = "predict"),
+        args =
+          list(
+            object = rlang::expr(object$fit),
+            newdata = rlang::expr(new_data),
+            type = "response"
+          )
+      )
+    )
+  )
+})

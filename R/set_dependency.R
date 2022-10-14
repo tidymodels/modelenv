@@ -55,11 +55,8 @@ set_dependency <- function(model, mode, eng, pkg) {
   }
 
   # ----------------------------------------------------------------------------
-  # check mode; if missing assign all modes
+  # check mode
   all_modes <- unique(model_info$mode[model_info$engine == eng])
-  if (length(mode) > 1) {
-    rlang::abort("'mode' should be a single character value or NULL.")
-  }
   if (!any(mode == all_modes)) {
     rlang::abort(
       glue::glue("mode '{mode}' is not a valid mode for '{model}'.")
@@ -112,11 +109,6 @@ set_dependency <- function(model, mode, eng, pkg) {
 get_dependency <- function(model) {
   check_model_val(model)
   pkg_name <- paste0(model, "_pkgs")
-  if (!any(pkg_name != rlang::env_names(get_model_env()))) {
-    rlang::abort(
-      glue::glue("`{model}` does not have a dependency list in modelenv.")
-    )
-  }
   rlang::env_get(get_model_env(), pkg_name)
 }
 
