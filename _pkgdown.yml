@@ -26,6 +26,8 @@ reference:
     - check_spec_mode_engine_val
     - new_unsupervised_spec
     - is_unsupervised_spec
+    - new_unsupervised_fit
+    - is_unsupervised_fit
   - title: Model Environment
     desc: >
       modelenv provides an environment which is used to store the registered
