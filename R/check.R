@@ -32,15 +32,6 @@ stop_incompatible_mode <- function(spec_modes, eng = NULL, model = NULL) {
   rlang::abort(msg)
 }
 
-stop_incompatible_engine <- function(spec_engs, mode) {
-  msg <- glue::glue(
-    "Available engines for mode {mode} are: ",
-    glue::glue_collapse(glue::glue("'{spec_engs}'"), sep = ", ")
-  )
-  rlang::abort(msg)
-}
-
-
 check_model_val <- function(model) {
   if (rlang::is_missing(model) || length(model) != 1 || !is.character(model)) {
     rlang::abort(
