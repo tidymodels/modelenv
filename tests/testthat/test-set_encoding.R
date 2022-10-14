@@ -279,3 +279,35 @@ test_that("is_discordant_info() triggers for set_encoding()", {
     )
   )
 })
+
+test_that("set_encoding() can be called multiple times", {
+  set_new_model("shorts")
+  set_model_mode("shorts", "partition")
+  set_model_engine("shorts", "partition", "stats")
+
+  set_encoding(
+    model = "shorts",
+    mode = "partition",
+    eng = "stats",
+    options = list(
+      predictor_indicators = "traditional",
+      compute_intercept = TRUE,
+      remove_intercept = TRUE,
+      allow_sparse_x = FALSE
+    )
+  )
+
+  expect_no_error(
+    set_encoding(
+      model = "shorts",
+      mode = "partition",
+      eng = "stats",
+      options = list(
+        predictor_indicators = "traditional",
+        compute_intercept = TRUE,
+        remove_intercept = TRUE,
+        allow_sparse_x = FALSE
+      )
+    )
+  )
+})

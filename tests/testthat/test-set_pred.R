@@ -332,3 +332,46 @@ test_that("is_discordant_info() triggers for set_pred()", {
     )
   )
 })
+
+test_that("set_pred() can be called multiple times", {
+  set_new_model("firetruck")
+  set_model_mode("firetruck", "partition")
+  set_model_engine("firetruck", "partition", "stats")
+  set_pred(
+    model = "firetruck",
+    mode = "partition",
+    eng = "stats",
+    type = "raw",
+    value = list(
+      pre = NULL,
+      post = NULL,
+      func = c(fun = "predict"),
+      args =
+        list(
+          object = rlang::expr(object$fit),
+          newdata = rlang::expr(new_data),
+          type = "response"
+        )
+    )
+  )
+
+  expect_no_error(
+    set_pred(
+      model = "firetruck",
+      mode = "partition",
+      eng = "stats",
+      type = "raw",
+      value = list(
+        pre = NULL,
+        post = NULL,
+        func = c(fun = "predict"),
+        args =
+          list(
+            object = rlang::expr(object$fit),
+            newdata = rlang::expr(new_data),
+            type = "response"
+          )
+      )
+    )
+  )
+})
