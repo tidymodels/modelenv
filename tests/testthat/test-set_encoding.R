@@ -246,3 +246,36 @@ test_that("set_encoding() errors with wrong `value` argument", {
     )
   )
 })
+
+test_that("is_discordant_info() triggers for set_encoding()", {
+  set_new_model("longs")
+  set_model_mode("longs", "partition")
+  set_model_engine("longs", "partition", "stats")
+
+  set_encoding(
+    model = "longs",
+    mode = "partition",
+    eng = "stats",
+    options = list(
+      predictor_indicators = "traditional",
+      compute_intercept = TRUE,
+      remove_intercept = TRUE,
+      allow_sparse_x = FALSE
+    )
+  )
+
+  expect_snapshot(
+    error = TRUE,
+    set_encoding(
+      model = "longs",
+      mode = "partition",
+      eng = "stats",
+      options = list(
+        predictor_indicators = "traditional",
+        compute_intercept = FALSE,
+        remove_intercept = TRUE,
+        allow_sparse_x = FALSE
+      )
+    )
+  )
+})

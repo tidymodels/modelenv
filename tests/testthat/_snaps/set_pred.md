@@ -140,3 +140,12 @@
     Error <rlang_error>
       The `args` element should be a list.
 
+# is_discordant_info() triggers for set_pred()
+
+    Code
+      set_pred(model = "diamond", mode = "partition", eng = "stats", type = "raw",
+        value = list(pre = NULL, post = NULL, func = c(fun = "not predict"), args = list(
+          object = rlang::expr(object$fit), newdata = rlang::expr(new_data), type = "response")))
+    Error <rlang_error>
+      The combination of engine 'stats' and mode 'partition' and prediction type 'raw' already has predict data for model 'diamond' and the new information being registered is different.
+

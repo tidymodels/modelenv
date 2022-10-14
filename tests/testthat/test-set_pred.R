@@ -287,3 +287,48 @@ test_that("set_pred() errors with wrong `value` argument", {
     )
   )
 })
+
+test_that("is_discordant_info() triggers for set_pred()", {
+  set_new_model("diamond")
+  set_model_mode("diamond", "partition")
+  set_model_engine("diamond", "partition", "stats")
+
+  set_pred(
+    model = "diamond",
+    mode = "partition",
+    eng = "stats",
+    type = "raw",
+    value = list(
+      pre = NULL,
+      post = NULL,
+      func = c(fun = "predict"),
+      args =
+        list(
+          object = rlang::expr(object$fit),
+          newdata = rlang::expr(new_data),
+          type = "response"
+        )
+    )
+  )
+
+  expect_snapshot(
+    error = TRUE,
+    set_pred(
+      model = "diamond",
+      mode = "partition",
+      eng = "stats",
+      type = "raw",
+      value = list(
+        pre =  NULL,
+        post = NULL,
+        func = c(fun = "not predict"),
+        args =
+          list(
+            object = rlang::expr(object$fit),
+            newdata = rlang::expr(new_data),
+            type = "response"
+          )
+      )
+    )
+  )
+})
