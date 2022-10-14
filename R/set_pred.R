@@ -99,11 +99,6 @@ get_pred_type <- function(model, type) {
   check_model_val(model)
   pred_name <- paste0(model, "_predict")
   all_preds <- rlang::env_get(get_model_env(), pred_name)
-  if (!any(all_preds$type == type)) {
-    rlang::abort(
-      glue::glue("`{model}` does not have any prediction methods in modelenv.")
-    )
-  }
   vctrs::vec_slice(all_preds, all_preds$type == type)
 }
 
