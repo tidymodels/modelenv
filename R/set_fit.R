@@ -214,26 +214,37 @@ check_func_val <- function(func) {
   invisible(NULL)
 }
 
-check_mode_with_no_engine <- function(cls, mode) {
-  spec_modes <- get_from_env(paste0(cls, "_modes"))
+check_mode_with_no_engine <- function(model, mode) {
+  spec_modes <- get_from_env(paste0(model, "_modes"))
   if (!(mode %in% spec_modes)) {
-    stop_incompatible_mode(spec_modes, cls = cls)
+    stop_incompatible_mode(spec_modes, model = model)
   }
 }
 
-stop_incompatible_mode <- function(spec_modes, eng = NULL, cls = NULL) {
-  if (is.null(eng) & is.null(cls)) {
+#' Error handling for incompatible modes
+#'
+#' @param spec_modes Character vector of modes
+#' @param eng Character of specific engine
+#' @param model Character of specific model
+#'
+#' @return An error
+#' @export
+#' @examples
+#' library(rlang)
+#' tmp <- catch_cnd(stop_incompatible_mode("partition"))
+stop_incompatible_mode <- function(spec_modes, eng = NULL, model = NULL) {
+  if (is.null(eng) & is.null(model)) {
     msg <- "Available modes are: "
   }
-  if (!is.null(eng) & is.null(cls)) {
+  if (!is.null(eng) & is.null(model)) {
     msg <- glue::glue("Available modes for engine {eng} are: ")
   }
-  if (is.null(eng) & !is.null(cls)) {
-    msg <- glue::glue("Available modes for model type {cls} are: ")
+  if (is.null(eng) & !is.null(model)) {
+    msg <- glue::glue("Available modes for model type {model} are: ")
   }
-  if (!is.null(eng) & !is.null(cls)) {
+  if (!is.null(eng) & !is.null(model)) {
     msg <- glue::glue(
-      "Available modes for model type {cls} with engine {eng} are: "
+      "Available modes for model type {model} with engine {eng} are: "
     )
   }
 

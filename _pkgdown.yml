@@ -17,6 +17,11 @@ reference:
     - set_fit
     - set_encoding
     - set_pred
+  - title: Developer Functions
+    desc: >
+      hahahaha
+    contents:
+    - stop_incompatible_mode
   - title: Model Environment
     desc: >
       modelenv provides an environment which is used to store the registered
