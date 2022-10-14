@@ -128,3 +128,14 @@ test_that("set_dependency() errors with wrong `pkg` argument", {
     set_dependency("duck", "partition", "stats", NULL)
   )
 })
+
+test_that("set_dependency() errors if engine doesn't match", {
+  set_new_model("zebra")
+  set_model_mode("zebra", "partition")
+  set_model_engine("zebra", "partition", "stats")
+
+  expect_snapshot(
+    error = TRUE,
+    set_dependency("zebra", "partition", "not stats", "base")
+  )
+})

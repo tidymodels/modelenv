@@ -82,3 +82,10 @@
     Error <rlang_error>
       Please supply a single character value for the package name.
 
+# set_dependency() errors if engine doesn't match
+
+    Code
+      set_dependency("zebra", "partition", "not stats", "base")
+    Error <rlang_error>
+      The engine 'not stats' has not been registered for model 'zebra'.
+
