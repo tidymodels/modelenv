@@ -125,17 +125,5 @@ check_spec_mode_engine_val <- function(model, mode, eng) {
     stop_incompatible_mode(spec_modes, eng)
   }
 
-  # ----------------------------------------------------------------------------
-  # Check engine based on model and model
-
-  # How check for compatibility with the chosen mode (if any)
-  if (!is.null(mode) && mode != "unknown") {
-    spec_engs <- spec_engs[model_info$mode == mode]
-  }
-  spec_engs <- unique(spec_engs)
-  if (!is.null(eng) && !(eng %in% spec_engs)) {
-    stop_incompatible_engine(spec_engs, mode)
-  }
-
   invisible(NULL)
 }
