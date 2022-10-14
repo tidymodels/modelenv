@@ -76,7 +76,7 @@ set_encoding <- function(model, mode, eng, options) {
   nm <- paste0(model, "_encoding")
   current <- get_from_env(nm)
 
-  db_values <- vctrs::vec_cbind(current, new_values)
+  db_values <- vctrs::vec_rbind(current, new_values)
   set_env_val(nm, db_values)
 
   invisible(NULL)

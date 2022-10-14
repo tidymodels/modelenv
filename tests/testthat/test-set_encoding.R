@@ -29,6 +29,51 @@ test_that("set_encoding() works", {
   )
 })
 
+test_that("set_encoding() works", {
+  set_new_model("shorts")
+  set_model_mode("shorts", "partition")
+  set_model_engine("shorts", "partition", "stats")
+
+  set_encoding(
+    model = "shorts",
+    mode = "partition",
+    eng = "stats",
+    options = list(
+      predictor_indicators = "traditional",
+      compute_intercept = TRUE,
+      remove_intercept = TRUE,
+      allow_sparse_x = FALSE
+    )
+  )
+
+  set_model_engine("shorts", "partition", "glmnet")
+
+  set_encoding(
+    model = "shorts",
+    mode = "partition",
+    eng = "glmnet",
+    options = list(
+      predictor_indicators = "traditional",
+      compute_intercept = FALSE,
+      remove_intercept = FALSE,
+      allow_sparse_x = TRUE
+    )
+  )
+
+  expect_identical(
+    get_encoding("shorts"),
+    tibble::tibble(
+      model = c("shorts", "shorts"),
+      engine = c("stats", "glmnet"),
+      mode = c("partition", "partition"),
+      predictor_indicators = c("traditional", "traditional"),
+      compute_intercept = c(TRUE, FALSE),
+      remove_intercept = c(TRUE, FALSE),
+      allow_sparse_x = c(FALSE, TRUE)
+    )
+  )
+})
+
 test_that("set_encoding() errors with wrong `model` argument", {
   set_new_model("mower")
   set_model_mode("mower", "partition")
