@@ -90,10 +90,7 @@ set_fit <- function(model, mode, eng, value) {
     value = list(value)
   )
 
-  updated <- try(vctrs::vec_rbind(old_fits, new_fit), silent = TRUE)
-  if (inherits(updated, "try-error")) {
-    rlang::abort("An error occured when adding the new fit module.")
-  }
+  updated <- vctrs::vec_rbind(old_fits, new_fit)
 
   set_env_val(
     paste0(model, "_fit"),

@@ -86,10 +86,7 @@ set_pred <- function(model, mode, eng, type, value) {
   }
 
   old_pred <- get_from_env(paste0(model, "_predict"))
-  updated <- try(vctrs::vec_rbind(old_pred, new_pred), silent = TRUE)
-  if (inherits(updated, "try-error")) {
-    rlang::abort("An error occured when adding the new fit module.")
-  }
+  updated <- vctrs::vec_rbind(old_pred, new_pred)
 
   set_env_val(paste0(model, "_predict"), updated)
 
