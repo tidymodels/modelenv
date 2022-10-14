@@ -121,9 +121,7 @@ check_spec_mode_engine_val <- function(model, mode, eng) {
   }
   spec_modes <- unique(c("unknown", spec_modes))
 
-  if (is.null(mode) || length(mode) > 1) {
-    stop_incompatible_mode(spec_modes, eng)
-  } else if (!(mode %in% spec_modes)) {
+  if (!(mode %in% spec_modes)) {
     stop_incompatible_mode(spec_modes, eng)
   }
 
