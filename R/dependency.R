@@ -109,11 +109,6 @@ set_dependency <- function(model, mode, eng, pkg) {
 get_dependency <- function(model) {
   check_model_val(model)
   pkg_name <- paste0(model, "_pkgs")
-  if (!any(pkg_name != rlang::env_names(get_model_env()))) {
-    rlang::abort(
-      glue::glue("`{model}` does not have a dependency list in modelenv.")
-    )
-  }
   rlang::env_get(get_model_env(), pkg_name)
 }
 

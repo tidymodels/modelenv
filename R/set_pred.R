@@ -101,11 +101,6 @@ set_pred <- function(model, mode, eng, type, value) {
 get_pred_type <- function(model, type) {
   check_model_val(model)
   pred_name <- paste0(model, "_predict")
-  if (!any(pred_name != rlang::env_names(get_model_env()))) {
-    rlang::abort(
-      glue::glue("`{model}` does not have any `pred` methods in modelenv.")
-    )
-  }
   all_preds <- rlang::env_get(get_model_env(), pred_name)
   if (!any(all_preds$type == type)) {
     rlang::abort(

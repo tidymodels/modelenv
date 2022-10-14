@@ -108,11 +108,6 @@ set_fit <- function(model, mode, eng, value) {
 get_fit <- function(model) {
   check_model_val(model)
   fit_name <- paste0(model, "_fit")
-  if (!any(fit_name != rlang::env_names(get_model_env()))) {
-    rlang::abort(
-      glue::glue("`{model}` does not have a `fit` method in modelenv.")
-    )
-  }
   rlang::env_get(get_model_env(), fit_name)
 }
 
