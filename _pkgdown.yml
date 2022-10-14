@@ -19,9 +19,11 @@ reference:
     - set_pred
   - title: Developer Functions
     desc: >
-      hahahaha
+      This set of functions can be useful inside modeling infrastructure to
+      perform checking that the models, modes, and engines align.
     contents:
     - stop_incompatible_mode
+    - check_spec_mode_engine_val
   - title: Model Environment
     desc: >
       modelenv provides an environment which is used to store the registered

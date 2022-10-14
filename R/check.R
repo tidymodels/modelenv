@@ -32,6 +32,26 @@ check_eng_val <- function(eng) {
   invisible(NULL)
 }
 
+check_mode_with_no_engine <- function(model, mode) {
+  spec_modes <- get_from_env(paste0(model, "_modes"))
+  if (!(mode %in% spec_modes)) {
+    stop_incompatible_mode(spec_modes, model = model)
+  }
+}
+
+#' Error handling for unknown mode
+#'
+#' Checks that a given model, mode, engine combination have been registered.
+#'
+#' @param model Character of specific model
+#' @param mode Character of specific mode
+#' @param eng Character of specific engine
+#'
+#' @return An error
+#' @export
+#' @examples
+#' library(rlang)
+#' tmp <- catch_cnd(check_spec_mode_engine_val("turtle", "partition", "vegan"))
 check_spec_mode_engine_val <- function(model, mode, eng) {
   all_modes <- get_from_env(paste0(model, "_modes"))
   if (!(mode %in% all_modes)) {
