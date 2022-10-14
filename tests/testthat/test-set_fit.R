@@ -369,6 +369,21 @@ test_that("set_fit() errors with wrong `value` argument", {
       )
     )
   )
+
+  expect_snapshot(
+    error = TRUE,
+    set_fit(
+      model = "ladle",
+      mode = "partition",
+      eng = "stats",
+      value = list(
+        interface = "formula",
+        protect = c("formula", "data"),
+        func = c(pkg = "stats"),
+        defaults = list()
+      )
+    )
+  )
 })
 
 test_that("set_fit() errors if engine doesn't match", {
