@@ -51,10 +51,6 @@ test_that("adding a new model", {
 
   expect_snapshot(
     error = TRUE,
-    set_new_model("sponge")
-  )
-  expect_snapshot(
-    error = TRUE,
     set_new_model()
   )
   expect_snapshot(
@@ -64,5 +60,12 @@ test_that("adding a new model", {
   expect_snapshot(
     error = TRUE,
     set_new_model(letters[1:2])
+  )
+})
+
+test_that("set_new_model can be called multiple times", {
+  set_new_model("starfish")
+  expect_no_error(
+    set_new_model("starfish")
   )
 })

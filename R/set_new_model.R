@@ -12,11 +12,14 @@
 #' set_new_model("shallow_learning_model")
 #' @export
 set_new_model <- function(model) {
-  check_model_doesnt_exist(model)
-
+  if (rlang::is_missing(model) || length(model) != 1 || !is.character(model)) {
+    rlang::abort(
+      "Please supply a character string for a model name (e.g. `'k_means'`)."
+    )
+  }
   current <- get_model_env()
 
-  set_env_val("models", c(current$models, model))
+  set_env_val("models", unique(c(current$models, model)))
   set_env_val(
     model,
     tibble::tibble(engine = character(0), mode = character(0))
@@ -53,22 +56,6 @@ set_new_model <- function(model) {
       value = list()
     )
   )
-
-  invisible(NULL)
-}
-
-check_model_doesnt_exist <- function(model) {
-  if (rlang::is_missing(model) || length(model) != 1 || !is.character(model)) {
-    rlang::abort(
-      "Please supply a character string for a model name (e.g. `'k_means'`)."
-    )
-  }
-
-  current <- get_model_env()
-
-  if (any(current$models == model)) {
-    rlang::abort(glue::glue("Model `{model}` already exists."))
-  }
 
   invisible(NULL)
 }
