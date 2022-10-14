@@ -64,7 +64,6 @@ set_pred <- function(model, mode, eng, type, value) {
   check_eng_val(eng)
   check_spec_mode_engine_val(model, mode, eng)
   check_pred_info(value, type)
-  check_unregistered(model, mode, eng)
 
   new_pred <- tibble::tibble(
     engine = eng,
@@ -135,23 +134,5 @@ check_pred_info <- function(pred_obj, type) {
     rlang::abort("The `args` element should be a list.")
   }
 
-  invisible(NULL)
-}
-
-check_unregistered <- function(model, mode, eng) {
-  model_info <- get_from_env(model)
-  has_engine <- vctrs::vec_slice(
-    model_info,
-    model_info$engine == eng & model_info$mode == mode
-  )
-
-  if (nrow(has_engine) != 1) {
-    rlang::abort(
-      glue::glue(
-        "The combination of engine '{eng}' and mode '{mode}' has not ",
-        "been registered for model '{model}'."
-      )
-    )
-  }
   invisible(NULL)
 }

@@ -206,13 +206,6 @@ check_func_val <- function(func) {
   invisible(NULL)
 }
 
-check_mode_with_no_engine <- function(model, mode) {
-  spec_modes <- get_from_env(paste0(model, "_modes"))
-  if (!(mode %in% spec_modes)) {
-    stop_incompatible_mode(spec_modes, model = model)
-  }
-}
-
 #' Error handling for incompatible modes
 #'
 #' @param spec_modes Character vector of modes
