@@ -17,7 +17,8 @@ Imports:
 Suggests: 
     covr,
     testthat (>= 3.0.0)
+Config/Needs/website: tidyverse/tidytemplate
 Config/testthat/edition: 3
-URL: https://github.com/EmilHvitfeldt/modelenv,
-    https://emilhvitfeldt.github.io/modelenv/
-BugReports: https://github.com/EmilHvitfeldt/modelenv/issues
+URL: https://github.com/tidymodels/modelenv,
+    https://modelenv.tidymodels.org/
+BugReports: https://github.com/tidymodels/modelenv/issues
