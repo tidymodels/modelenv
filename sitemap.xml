@@ -1,66 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://emilhvitfeldt.github.io/modelenv/404.html</loc>
+    <loc>https://modelenv.tidymodels.org/404.html</loc>
   </url>
   <url>
-    <loc>https://emilhvitfeldt.github.io/modelenv/LICENSE-text.html</loc>
+    <loc>https://modelenv.tidymodels.org/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>https://emilhvitfeldt.github.io/modelenv/LICENSE.html</loc>
+    <loc>https://modelenv.tidymodels.org/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://emilhvitfeldt.github.io/modelenv/authors.html</loc>
+    <loc>https://modelenv.tidymodels.org/authors.html</loc>
   </url>
   <url>
-    <loc>https://emilhvitfeldt.github.io/modelenv/index.html</loc>
+    <loc>https://modelenv.tidymodels.org/index.html</loc>
   </url>
   <url>
-    <loc>https://emilhvitfeldt.github.io/modelenv/reference/check_spec_mode_engine_val.html</loc>
+    <loc>https://modelenv.tidymodels.org/reference/check_spec_mode_engine_val.html</loc>
   </url>
   <url>
-    <loc>https://emilhvitfeldt.github.io/modelenv/reference/get_model_env.html</loc>
+    <loc>https://modelenv.tidymodels.org/reference/get_model_env.html</loc>
   </url>
   <url>
-    <loc>https://emilhvitfeldt.github.io/modelenv/reference/index.html</loc>
+    <loc>https://modelenv.tidymodels.org/reference/index.html</loc>
   </url>
   <url>
-    <loc>https://emilhvitfeldt.github.io/modelenv/reference/is_unsupervised_fit.html</loc>
+    <loc>https://modelenv.tidymodels.org/reference/is_unsupervised_fit.html</loc>
   </url>
   <url>
-    <loc>https://emilhvitfeldt.github.io/modelenv/reference/is_unsupervised_spec.html</loc>
+    <loc>https://modelenv.tidymodels.org/reference/is_unsupervised_spec.html</loc>
   </url>
   <url>
-    <loc>https://emilhvitfeldt.github.io/modelenv/reference/new_unsupervised_fit.html</loc>
+    <loc>https://modelenv.tidymodels.org/reference/new_unsupervised_fit.html</loc>
   </url>
   <url>
-    <loc>https://emilhvitfeldt.github.io/modelenv/reference/new_unsupervised_spec.html</loc>
+    <loc>https://modelenv.tidymodels.org/reference/new_unsupervised_spec.html</loc>
   </url>
   <url>
-    <loc>https://emilhvitfeldt.github.io/modelenv/reference/set_dependency.html</loc>
+    <loc>https://modelenv.tidymodels.org/reference/set_dependency.html</loc>
   </url>
   <url>
-    <loc>https://emilhvitfeldt.github.io/modelenv/reference/set_encoding.html</loc>
+    <loc>https://modelenv.tidymodels.org/reference/set_encoding.html</loc>
   </url>
   <url>
-    <loc>https://emilhvitfeldt.github.io/modelenv/reference/set_fit.html</loc>
+    <loc>https://modelenv.tidymodels.org/reference/set_fit.html</loc>
   </url>
   <url>
-    <loc>https://emilhvitfeldt.github.io/modelenv/reference/set_model_arg.html</loc>
+    <loc>https://modelenv.tidymodels.org/reference/set_model_arg.html</loc>
   </url>
   <url>
-    <loc>https://emilhvitfeldt.github.io/modelenv/reference/set_model_engine.html</loc>
+    <loc>https://modelenv.tidymodels.org/reference/set_model_engine.html</loc>
   </url>
   <url>
-    <loc>https://emilhvitfeldt.github.io/modelenv/reference/set_model_mode.html</loc>
+    <loc>https://modelenv.tidymodels.org/reference/set_model_mode.html</loc>
   </url>
   <url>
-    <loc>https://emilhvitfeldt.github.io/modelenv/reference/set_new_model.html</loc>
+    <loc>https://modelenv.tidymodels.org/reference/set_new_model.html</loc>
   </url>
   <url>
-    <loc>https://emilhvitfeldt.github.io/modelenv/reference/set_pred.html</loc>
+    <loc>https://modelenv.tidymodels.org/reference/set_pred.html</loc>
   </url>
   <url>
-    <loc>https://emilhvitfeldt.github.io/modelenv/reference/stop_incompatible_mode.html</loc>
+    <loc>https://modelenv.tidymodels.org/reference/stop_incompatible_mode.html</loc>
   </url>
 </urlset>
