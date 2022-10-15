@@ -19,8 +19,8 @@ avoid complex dependencies.
 
 ## Installation
 
-~~You can install the released version of modelenv from
-[CRAN](https://CRAN.R-project.org) with:~~
+You can install the released version of modelenv from
+[CRAN](https://CRAN.R-project.org) with:
 
 ``` r
 install.packages("modelenv")

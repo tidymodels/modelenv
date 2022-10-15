@@ -10,6 +10,9 @@ set_new_model(model)
 \item{model}{A single character string for the model type (e.g. "k_means",
 etc).}
 }
+\value{
+NULL invisibly
+}
 \description{
 This function is used to register new types of models.
 }

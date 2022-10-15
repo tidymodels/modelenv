@@ -20,6 +20,9 @@ environment.}
 
 \item{value}{A single value for a new value in the model environment.}
 }
+\value{
+The modelenv environment
+}
 \description{
 These functions read and write to the environment where the package stores
 information about model specifications.

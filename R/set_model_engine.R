@@ -10,6 +10,7 @@
 #' This function will error if called multiple times with the same arguments. As
 #' you should only have one unique model, mode, eng combination.
 #'
+#' @return NULL invisibly
 #' @examplesIf FALSE
 #' set_new_model("shallow_learning_model")
 #' set_model_mode("shallow_learning_model", "partition")

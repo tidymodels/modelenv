@@ -11,6 +11,7 @@
 #' packages use `set_model_mode()` avoids having one package depend on the
 #' other.
 #'
+#' @return NULL invisibly
 #' @examplesIf FALSE
 #' set_new_model("shallow_learning_model")
 #'

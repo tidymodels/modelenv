@@ -32,6 +32,7 @@
 #'   matrix or data frame, you could also use
 #'   `newdata = quote(as.data.frame(newdata))` or similar.
 #'
+#' @return A tibble
 #' @examplesIf FALSE
 #' set_new_model("shallow_learning_model")
 #' set_model_mode("shallow_learning_model", "partition")

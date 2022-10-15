@@ -22,6 +22,7 @@
 #' This function needs to be called once for each argument that you are
 #' exposing.
 #'
+#' @return A tibble
 #' @examplesIf FALSE
 #' set_new_model("shallow_learning_model")
 #' set_model_mode("shallow_learning_model", "partition")

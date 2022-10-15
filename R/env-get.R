@@ -7,6 +7,7 @@
 #' @param name A single character value for a new symbol in the model
 #'   environment.
 #' @param value A single value for a new value in the model environment.
+#' @return The modelenv environment
 #' @examplesIf FALSE
 #' # Access the model data:
 #' current_code <- get_model_env()

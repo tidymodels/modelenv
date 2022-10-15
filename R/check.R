@@ -5,10 +5,10 @@
 #' @param model Character of specific model
 #'
 #' @return An error
-#' @export
 #' @examples
 #' library(rlang)
 #' tmp <- catch_cnd(stop_incompatible_mode("partition"))
+#' @export
 stop_incompatible_mode <- function(spec_modes, eng = NULL, model = NULL) {
   if (is.null(eng) & is.null(model)) {
     msg <- "Available modes are: "
@@ -75,10 +75,10 @@ check_eng_val <- function(eng) {
 #' @param eng Character of specific engine
 #'
 #' @return An error
-#' @export
 #' @examples
 #' library(rlang)
 #' tmp <- catch_cnd(check_spec_mode_engine_val("turtle", "partition", "vegan"))
+#' @export
 check_spec_mode_engine_val <- function(model, mode, eng) {
   all_modes <- get_from_env(paste0(model, "_modes"))
   if (!(mode %in% all_modes)) {

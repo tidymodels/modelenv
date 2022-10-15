@@ -13,6 +13,7 @@
 #' The `mode` needs to be set explicitly, and dependencies needs to be specified
 #' for each `model`, `mode` and `eng` combination.
 #'
+#' @return A tibble
 #' @examplesIf FALSE
 #' set_new_model("shallow_learning_model")
 #' set_model_mode("shallow_learning_model", "partition")

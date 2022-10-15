@@ -5,11 +5,11 @@
 #'
 #' @seealso [is_unsupervised_fit()]
 #'
-#' @export
 #' @examples
 #' model_fit <- list(letters)
 #' model_fit <- new_unsupervised_fit(model_fit)
 #' model_fit
+#' @export
 new_unsupervised_fit <- function(x) {
   class(x) <- c(class(x), "unsupervised_fit")
   x

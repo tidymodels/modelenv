@@ -26,6 +26,7 @@
 #'   user can change, but whose defaults can be set here. This isn’t needed in
 #'   this case, but is described later in this document.
 #'
+#' @return A tibble
 #' @examplesIf FALSE
 #' set_new_model("shallow_learning_model")
 #' set_model_mode("shallow_learning_model", "partition")

@@ -14,6 +14,9 @@ etc).}
 
 \item{eng}{A single character string for the model engine.}
 }
+\value{
+NULL invisibly
+}
 \description{
 This function is used to register a mode for a model and mode combination.
 }

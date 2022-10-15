@@ -19,6 +19,9 @@ get_dependency(model)
 
 \item{pkg}{An options character string for a package name.}
 }
+\value{
+A tibble
+}
 \description{
 This function is used to register a mode for a model, engine, and mode
 combination.

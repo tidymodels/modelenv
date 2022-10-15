@@ -12,6 +12,9 @@ etc).}
 
 \item{mode}{A single character string for the model mode (e.g. "partition").}
 }
+\value{
+NULL invisibly
+}
 \description{
 This function is used to register a mode for a model.
 }

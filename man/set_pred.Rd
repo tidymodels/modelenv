@@ -22,6 +22,9 @@ values are: \code{cluster} and \code{raw}.}
 
 \item{value}{A list of values, described in the Details.}
 }
+\value{
+A tibble
+}
 \description{
 This function is used to register prediction method information for a model,
 mode, and engine combination.

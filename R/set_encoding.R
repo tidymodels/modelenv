@@ -30,6 +30,7 @@
 #' - **allow_sparse_x** specifies whether the model can accommodate a sparse
 #'   representation for predictors during fitting and tuning.
 #'
+#' @return A tibble
 #' @examplesIf FALSE
 #' set_new_model("shallow_learning_model")
 #' set_model_mode("shallow_learning_model", "partition")

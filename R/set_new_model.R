@@ -8,6 +8,7 @@
 #'   engines (in a package or otherwise) so that they can be accessed using
 #'   packages that use modelenv.
 #'
+#' @return NULL invisibly
 #' @examplesIf FALSE
 #' set_new_model("shallow_learning_model")
 #' @export

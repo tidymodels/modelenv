@@ -19,6 +19,9 @@ get_fit(model)
 
 \item{value}{A list of values, described in the Details.}
 }
+\value{
+A tibble
+}
 \description{
 This function is used to register a fit method for a model, engine, and mode
 combination.

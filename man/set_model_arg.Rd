@@ -30,6 +30,9 @@ package's \code{predict} method.}
 \item{has_submodel}{A single logical for whether the argument can make
 predictions on multiple submodels at once.}
 }
+\value{
+A tibble
+}
 \description{
 This function is used to register argument information for a model and engine
 combination.

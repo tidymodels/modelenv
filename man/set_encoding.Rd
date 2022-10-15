@@ -20,6 +20,9 @@ get_encoding(model)
 \item{options}{A list of options for engine-specific preprocessing encodings.
 See Details below.}
 }
+\value{
+A tibble
+}
 \description{
 This function is used to register encoding information for a model, engine,
 and mode combination.
