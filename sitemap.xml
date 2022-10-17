@@ -16,6 +16,9 @@
     <loc>https://modelenv.tidymodels.org/index.html</loc>
   </url>
   <url>
+    <loc>https://modelenv.tidymodels.org/news/index.html</loc>
+  </url>
+  <url>
     <loc>https://modelenv.tidymodels.org/reference/check_spec_mode_engine_val.html</loc>
   </url>
   <url>
