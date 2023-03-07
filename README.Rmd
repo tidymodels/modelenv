@@ -34,8 +34,8 @@ install.packages("modelenv")
 And the development version from [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("remotes")
-remotes::install_github("tidymodels/modelenv")
+# install.packages("pak")
+pak::pak("tidymodels/modelenv")
 ```
 
 ## Learn more
