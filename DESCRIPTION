@@ -1,9 +1,11 @@
 Package: modelenv
 Title: Provide Tools to Register Models for Use in 'tidymodels'
 Version: 0.1.0.9000
-Authors@R: 
-    person("Emil", "Hvitfeldt", , "emilhhvitfeldt@gmail.com", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0002-0679-1945"))
+Authors@R: c(
+    person("Emil", "Hvitfeldt", , "emil.hvitfeldt@posit.co", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-0679-1945")),
+    person(given = "Posit Software, PBC", role = c("cph", "fnd"))
+  )
 Description: An developer focused, low dependency package in 'tidymodels' that
     provides functions to register how models are to be used. Functions to
     register models are complimented with accessor functions to retrieve
