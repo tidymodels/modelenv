@@ -4,6 +4,9 @@
     <loc>https://modelenv.tidymodels.org/404.html</loc>
   </url>
   <url>
+    <loc>https://modelenv.tidymodels.org/CODE_OF_CONDUCT.html</loc>
+  </url>
+  <url>
     <loc>https://modelenv.tidymodels.org/LICENSE-text.html</loc>
   </url>
   <url>
@@ -32,6 +35,9 @@
   </url>
   <url>
     <loc>https://modelenv.tidymodels.org/reference/is_unsupervised_spec.html</loc>
+  </url>
+  <url>
+    <loc>https://modelenv.tidymodels.org/reference/modelenv-package.html</loc>
   </url>
   <url>
     <loc>https://modelenv.tidymodels.org/reference/new_unsupervised_fit.html</loc>
