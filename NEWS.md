@@ -1,4 +1,4 @@
-# modelenv (development version)
+# modelenv 0.1.1
 
 * Updated Authors@R.
 
