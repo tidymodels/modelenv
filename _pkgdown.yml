@@ -8,7 +8,7 @@ template:
 
   includes:
       in_header: |
-        <script defer data-domain="recipes.tidymodels.org,all.tidymodels.org" src="https://plausible.io/js/plausible.js"></script>
+        <script defer data-domain="modelenv.tidymodels.org,all.tidymodels.org" src="https://plausible.io/js/plausible.js"></script>
 
 reference:
   - title: Register Models
