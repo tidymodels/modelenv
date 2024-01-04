@@ -2,69 +2,79 @@
 
     Code
       set_model_engine("panda", "partition", "stats")
-    Error <rlang_error>
-      Engine 'stats' already exists for `panda()` with mode `partition`.
+    Condition
+      Error in `check_mode_for_new_engine()`:
+      ! Engine 'stats' already exists for `panda()` with mode `partition`.
 
 # set_model_engine() errors with wrong `model` argument
 
     Code
       set_model_engine("stickynotes")
-    Error <rlang_error>
-      Model `stickynotes` has not been registered.
+    Condition
+      Error in `check_model_val()`:
+      ! Model `stickynotes` has not been registered.
 
 ---
 
     Code
       set_model_engine(c("boombox", "egg"), "partition", "stats")
-    Error <rlang_error>
-      Please supply a character string for a model name (e.g. `'k_means'`).
+    Condition
+      Error in `check_model_val()`:
+      ! Please supply a character string for a model name (e.g. `'k_means'`).
 
 # set_model_engine() errors with wrong `mode` argument
 
     Code
       set_model_engine("paper")
-    Error <rlang_error>
-      Please supply a character string for a mode (e.g. `'partition'`).
+    Condition
+      Error in `check_mode_val()`:
+      ! Please supply a character string for a mode (e.g. `'partition'`).
 
 ---
 
     Code
       set_model_engine("paper", c("classification", "regression"))
-    Error <rlang_error>
-      Please supply a character string for a mode (e.g. `'partition'`).
+    Condition
+      Error in `check_mode_val()`:
+      ! Please supply a character string for a mode (e.g. `'partition'`).
 
 ---
 
     Code
       set_model_engine("paper", NULL)
-    Error <rlang_error>
-      Please supply a character string for a mode (e.g. `'partition'`).
+    Condition
+      Error in `check_mode_val()`:
+      ! Please supply a character string for a mode (e.g. `'partition'`).
 
 ---
 
     Code
       set_model_engine("panda", "not partition", "stats")
-    Error <rlang_error>
-      'not partition' is not a known mode for model `panda()`.
+    Condition
+      Error in `check_mode_for_new_engine()`:
+      ! 'not partition' is not a known mode for model `panda()`.
 
 # set_model_engine() errors with wrong `engine` argument
 
     Code
       set_model_engine("street", "partition")
-    Error <rlang_error>
-      Please supply a character string for an engine name (e.g. `'stats'`).
+    Condition
+      Error in `check_eng_val()`:
+      ! Please supply a character string for an engine name (e.g. `'stats'`).
 
 ---
 
     Code
       set_model_engine("street", "partition", c("glmnet", "stats"))
-    Error <rlang_error>
-      Please supply a character string for an engine name (e.g. `'stats'`).
+    Condition
+      Error in `check_eng_val()`:
+      ! Please supply a character string for an engine name (e.g. `'stats'`).
 
 ---
 
     Code
       set_model_engine("street", "partition", NULL)
-    Error <rlang_error>
-      Please supply a character string for an engine name (e.g. `'stats'`).
+    Condition
+      Error in `check_eng_val()`:
+      ! Please supply a character string for an engine name (e.g. `'stats'`).
 
