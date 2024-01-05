@@ -2,8 +2,9 @@
 
     Code
       set_encoding("light")
-    Error <rlang_error>
-      Model `light` has not been registered.
+    Condition
+      Error in `check_model_val()`:
+      ! Model `light` has not been registered.
 
 ---
 
@@ -11,29 +12,33 @@
       set_encoding(model = c("bear", "rabbit"), mode = "partition", eng = "stats",
       options = list(predictor_indicators = "traditional", compute_intercept = TRUE,
         remove_intercept = TRUE, allow_sparse_x = FALSE))
-    Error <rlang_error>
-      Please supply a character string for a model name (e.g. `'k_means'`).
+    Condition
+      Error in `check_model_val()`:
+      ! Please supply a character string for a model name (e.g. `'k_means'`).
 
 # set_encoding() errors with wrong `mode` argument
 
     Code
       set_encoding("sticker")
-    Error <rlang_error>
-      Please supply a character string for a mode (e.g. `'partition'`).
+    Condition
+      Error in `check_mode_val()`:
+      ! Please supply a character string for a mode (e.g. `'partition'`).
 
 ---
 
     Code
       set_encoding("sticker", c("classification", "regression"))
-    Error <rlang_error>
-      Please supply a character string for a mode (e.g. `'partition'`).
+    Condition
+      Error in `check_mode_val()`:
+      ! Please supply a character string for a mode (e.g. `'partition'`).
 
 ---
 
     Code
       set_encoding("sticker", NULL)
-    Error <rlang_error>
-      Please supply a character string for a mode (e.g. `'partition'`).
+    Condition
+      Error in `check_mode_val()`:
+      ! Please supply a character string for a mode (e.g. `'partition'`).
 
 ---
 
@@ -41,51 +46,58 @@
       set_encoding(model = "sticker", mode = "not partition", eng = "stats", options = list(
         predictor_indicators = "traditional", compute_intercept = TRUE,
         remove_intercept = TRUE, allow_sparse_x = FALSE))
-    Error <rlang_error>
-      'not partition' is not a known mode for model `sticker()`.
+    Condition
+      Error in `check_spec_mode_engine_val()`:
+      ! 'not partition' is not a known mode for model `sticker()`.
 
 # set_encoding() errors with wrong `engine` argument
 
     Code
       set_encoding("lantern", "partition")
-    Error <rlang_error>
-      Please supply a character string for an engine name (e.g. `'stats'`).
+    Condition
+      Error in `check_eng_val()`:
+      ! Please supply a character string for an engine name (e.g. `'stats'`).
 
 ---
 
     Code
       set_encoding("lantern", "partition", c("glmnet", "stats"))
-    Error <rlang_error>
-      Please supply a character string for an engine name (e.g. `'stats'`).
+    Condition
+      Error in `check_eng_val()`:
+      ! Please supply a character string for an engine name (e.g. `'stats'`).
 
 ---
 
     Code
       set_model_engine("lantern", "partition", NULL)
-    Error <rlang_error>
-      Please supply a character string for an engine name (e.g. `'stats'`).
+    Condition
+      Error in `check_eng_val()`:
+      ! Please supply a character string for an engine name (e.g. `'stats'`).
 
 # set_encoding() errors with wrong `value` argument
 
     Code
       set_encoding("chain", "partition", "stats")
-    Error <rlang_error>
-      `values` should be a list.
+    Condition
+      Error in `check_encodings()`:
+      ! `values` should be a list.
 
 ---
 
     Code
       set_encoding("chain", "partition", "stats", NULL)
-    Error <rlang_error>
-      `values` should be a list.
+    Condition
+      Error in `check_encodings()`:
+      ! `values` should be a list.
 
 ---
 
     Code
       set_encoding(model = "chain", mode = "partition", eng = "stats", options = list(
         compute_intercept = TRUE, remove_intercept = TRUE, allow_sparse_x = FALSE))
-    Error <rlang_error>
-      The values passed to `set_encoding()` are missing arguments: 'predictor_indicators'
+    Condition
+      Error in `check_encodings()`:
+      ! The values passed to `set_encoding()` are missing arguments: 'predictor_indicators'
 
 ---
 
@@ -93,8 +105,9 @@
       set_encoding(model = "chain", mode = "partition", eng = "stats", options = list(
         predictor_indicators = "traditional", remove_intercept = TRUE,
         allow_sparse_x = FALSE))
-    Error <rlang_error>
-      The values passed to `set_encoding()` are missing arguments: 'compute_intercept'
+    Condition
+      Error in `check_encodings()`:
+      ! The values passed to `set_encoding()` are missing arguments: 'compute_intercept'
 
 ---
 
@@ -102,8 +115,9 @@
       set_encoding(model = "chain", mode = "partition", eng = "stats", options = list(
         predictor_indicators = "traditional", compute_intercept = TRUE,
         allow_sparse_x = FALSE))
-    Error <rlang_error>
-      The values passed to `set_encoding()` are missing arguments: 'remove_intercept'
+    Condition
+      Error in `check_encodings()`:
+      ! The values passed to `set_encoding()` are missing arguments: 'remove_intercept'
 
 ---
 
@@ -111,8 +125,9 @@
       set_encoding(model = "chain", mode = "partition", eng = "stats", options = list(
         predictor_indicators = "traditional", compute_intercept = TRUE,
         remove_intercept = TRUE))
-    Error <rlang_error>
-      The values passed to `set_encoding()` are missing arguments: 'allow_sparse_x'
+    Condition
+      Error in `check_encodings()`:
+      ! The values passed to `set_encoding()` are missing arguments: 'allow_sparse_x'
 
 ---
 
@@ -120,8 +135,9 @@
       set_encoding(model = "chain", mode = "partition", eng = "stats", options = list(
         predictor_indicators = "traditional", compute_intercept = TRUE,
         remove_intercept = TRUE, allow_sparse_x = FALSE, additional = "arg"))
-    Error <rlang_error>
-      The values passed to `set_encoding()` had extra arguments: 'additional'
+    Condition
+      Error in `check_encodings()`:
+      ! The values passed to `set_encoding()` had extra arguments: 'additional'
 
 # is_discordant_info() triggers for set_encoding()
 
@@ -129,6 +145,7 @@
       set_encoding(model = "longs", mode = "partition", eng = "stats", options = list(
         predictor_indicators = "traditional", compute_intercept = FALSE,
         remove_intercept = TRUE, allow_sparse_x = FALSE))
-    Error <rlang_error>
-      The combination of engine 'stats' and mode 'partition'  already has encoding data for model 'longs' and the new information being registered is different.
+    Condition
+      Error in `is_discordant_info()`:
+      ! The combination of engine 'stats' and mode 'partition'  already has encoding data for model 'longs' and the new information being registered is different.
 
