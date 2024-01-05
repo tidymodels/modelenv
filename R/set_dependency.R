@@ -113,9 +113,12 @@ get_dependency <- function(model) {
   rlang::env_get(get_model_env(), pkg_name)
 }
 
-check_pkg_val <- function(pkg) {
+check_pkg_val <- function(pkg, call = rlang::caller_env()) {
   if (rlang::is_missing(pkg) || length(pkg) != 1 || !is.character(pkg)) {
-    rlang::abort("Please supply a single character value for the package name.")
+    rlang::abort(
+      "Please supply a single character value for the package name.",
+      call = call
+    )
   }
   invisible(NULL)
 }
