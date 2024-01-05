@@ -93,7 +93,7 @@
       set_model_arg(model = "unicorn", eng = "stats", exposed = "method", original = "moethod")
     Condition
       Error in `set_model_arg()`:
-      ! argument "func" is missing, with no default
+      ! `func` should be a named vector with element 'fun' and the optional  elements 'pkg', 'range', 'trans', and 'values'. `func` and 'pkg' should both be single character strings.
 
 ---
 
@@ -120,7 +120,7 @@
         func = list(pkg = "stats", fun = "lm"))
     Condition
       Error in `set_model_arg()`:
-      ! argument "has_submodel" is missing, with no default
+      ! The `submodels` argument should be a single logical.
 
 ---
 

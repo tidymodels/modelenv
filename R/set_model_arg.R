@@ -87,7 +87,9 @@ check_arg_val <- function(arg, call = rlang::caller_env()) {
 }
 
 check_submodels_val <- function(has_submodel, call = rlang::caller_env()) {
-  if (!is.logical(has_submodel) || length(has_submodel) != 1) {
+  if (rlang::is_missing(has_submodel) ||
+      !is.logical(has_submodel) ||
+      length(has_submodel) != 1) {
     rlang::abort(
       "The `submodels` argument should be a single logical.",
       call = call

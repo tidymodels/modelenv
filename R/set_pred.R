@@ -103,6 +103,13 @@ get_pred_type <- function(model, type) {
 }
 
 check_pred_info <- function(pred_obj, type, call = rlang::caller_env()) {
+  if (rlang::is_missing(pred_obj)) {
+    rlang::abort(
+      "Argument `value` is missing, with no default.",
+      call = call
+    )
+  }
+
   if (all(type != pred_types)) {
     rlang::abort(
       glue::glue(

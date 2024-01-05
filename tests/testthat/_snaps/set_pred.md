@@ -80,7 +80,7 @@
       set_pred("trunk", "partition", "stats", "raw")
     Condition
       Error in `set_pred()`:
-      ! argument "value" is missing, with no default
+      ! Argument `value` is missing, with no default.
 
 ---
 

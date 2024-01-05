@@ -169,11 +169,11 @@ check_func_val <- function(func, call = rlang::caller_env()) {
       "`func` and 'pkg' should both be single character strings."
     )
 
-  nms <- sort(names(func))
-
-  if (rlang::is_missing(func) || all(is.null(nms))) {
+  if (rlang::is_missing(func) || all(is.null(sort(names(func))))) {
     rlang::abort(msg, call = call)
   }
+
+  nms <- sort(names(func))
 
   if (length(func) == 1) {
     if (isTRUE(any(nms != "fun"))) {
