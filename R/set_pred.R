@@ -137,7 +137,7 @@ check_pred_info <- function(pred_obj, type, call = rlang::caller_env()) {
     )
   }
 
-  check_func_val(pred_obj$func)
+  check_func_val(pred_obj$func, call = call)
 
   if (!is.list(pred_obj$args)) {
     rlang::abort("The `args` element should be a list.", call = call)
