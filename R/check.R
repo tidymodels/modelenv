@@ -81,6 +81,8 @@ check_eng_val <- function(eng, call = rlang::caller_env()) {
 #' @param mode Character of specific mode
 #' @param eng Character of specific engine
 #'
+#' @inheritParams rlang::args_error_context
+#'
 #' @return An error
 #' @examples
 #' library(rlang)
