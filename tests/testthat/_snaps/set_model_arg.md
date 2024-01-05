@@ -3,7 +3,7 @@
     Code
       set_model_arg("light")
     Condition
-      Error in `check_model_val()`:
+      Error in `set_model_arg()`:
       ! Model `light` has not been registered.
 
 ---
@@ -19,7 +19,7 @@
     Code
       set_model_arg("thermos")
     Condition
-      Error in `check_eng_val()`:
+      Error in `set_model_arg()`:
       ! Please supply a character string for an engine name (e.g. `'stats'`).
 
 ---
@@ -27,7 +27,7 @@
     Code
       set_model_arg("thermos", c("glmnet", "stats"))
     Condition
-      Error in `check_eng_val()`:
+      Error in `set_model_arg()`:
       ! Please supply a character string for an engine name (e.g. `'stats'`).
 
 ---
@@ -35,7 +35,7 @@
     Code
       set_model_arg("thermos", NULL)
     Condition
-      Error in `check_eng_val()`:
+      Error in `set_model_arg()`:
       ! Please supply a character string for an engine name (e.g. `'stats'`).
 
 # set_model_arg() errors with wrong `exposed` argument
@@ -43,7 +43,7 @@
     Code
       set_model_arg(model = "marker", eng = "stats")
     Condition
-      Error in `check_arg_val()`:
+      Error in `set_model_arg()`:
       ! Please supply a character string for the argument.
 
 ---
@@ -51,7 +51,7 @@
     Code
       set_model_arg(model = "marker", eng = "stats", exposed = c("glmnet", "stats"))
     Condition
-      Error in `check_arg_val()`:
+      Error in `set_model_arg()`:
       ! Please supply a character string for the argument.
 
 ---
@@ -59,7 +59,7 @@
     Code
       set_model_arg(model = "marker", eng = "stats", exposed = NULL)
     Condition
-      Error in `check_arg_val()`:
+      Error in `set_model_arg()`:
       ! Please supply a character string for the argument.
 
 # set_model_arg() errors with wrong `original` argument
@@ -67,7 +67,7 @@
     Code
       set_model_arg(model = "mustache", eng = "stats", exposed = "method")
     Condition
-      Error in `check_arg_val()`:
+      Error in `set_model_arg()`:
       ! Please supply a character string for the argument.
 
 ---
@@ -76,7 +76,7 @@
       set_model_arg(model = "mustache", eng = "stats", exposed = "method", original = c(
         "not", "method"))
     Condition
-      Error in `check_arg_val()`:
+      Error in `set_model_arg()`:
       ! Please supply a character string for the argument.
 
 ---
@@ -84,7 +84,7 @@
     Code
       set_model_arg(model = "mustache", eng = "stats", exposed = "method", original = NULL)
     Condition
-      Error in `check_arg_val()`:
+      Error in `set_model_arg()`:
       ! Please supply a character string for the argument.
 
 # set_model_arg() errors with wrong `func` argument
@@ -101,7 +101,7 @@
       set_model_arg(model = "unicorn", eng = "stats", exposed = "method", original = "method",
         func = c("not", "method"))
     Condition
-      Error in `check_func_val()`:
+      Error in `set_model_arg()`:
       ! `func` should be a named vector with element 'fun' and the optional  elements 'pkg', 'range', 'trans', and 'values'. `func` and 'pkg' should both be single character strings.
 
 ---
@@ -110,7 +110,7 @@
       set_model_arg(model = "unicorn", eng = "stats", exposed = "method", original = "method",
         func = NULL)
     Condition
-      Error in `check_func_val()`:
+      Error in `set_model_arg()`:
       ! `func` should be a named vector with element 'fun' and the optional  elements 'pkg', 'range', 'trans', and 'values'. `func` and 'pkg' should both be single character strings.
 
 # set_model_arg() errors with wrong `has_submodel` argument
@@ -128,7 +128,7 @@
       set_model_arg(model = "velcro", eng = "stats", exposed = "method", original = "method",
         func = list(pkg = "stats", fun = "lm"), has_submodel = "yes")
     Condition
-      Error in `check_submodels_val()`:
+      Error in `set_model_arg()`:
       ! The `submodels` argument should be a single logical.
 
 ---
@@ -137,6 +137,6 @@
       set_model_arg(model = "velcro", eng = "stats", exposed = "method", original = "method",
         func = list(pkg = "stats", fun = "lm"), has_submodel = NULL)
     Condition
-      Error in `check_submodels_val()`:
+      Error in `set_model_arg()`:
       ! The `submodels` argument should be a single logical.
 

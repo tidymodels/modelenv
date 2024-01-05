@@ -3,7 +3,7 @@
     Code
       set_dependency("polarbear")
     Condition
-      Error in `check_model_val()`:
+      Error in `set_dependency()`:
       ! Model `polarbear` has not been registered.
 
 ---
@@ -19,7 +19,7 @@
     Code
       set_dependency("clip")
     Condition
-      Error in `check_mode_val()`:
+      Error in `set_dependency()`:
       ! Please supply a character string for a mode (e.g. `'partition'`).
 
 ---
@@ -27,7 +27,7 @@
     Code
       set_dependency("clip", c("classification", "regression"))
     Condition
-      Error in `check_mode_val()`:
+      Error in `set_dependency()`:
       ! Please supply a character string for a mode (e.g. `'partition'`).
 
 ---
@@ -35,7 +35,7 @@
     Code
       set_dependency("clip", NULL)
     Condition
-      Error in `check_mode_val()`:
+      Error in `set_dependency()`:
       ! Please supply a character string for a mode (e.g. `'partition'`).
 
 ---
@@ -51,7 +51,7 @@
     Code
       set_dependency("hamper", "partition")
     Condition
-      Error in `check_eng_val()`:
+      Error in `set_dependency()`:
       ! Please supply a character string for an engine name (e.g. `'stats'`).
 
 ---
@@ -59,7 +59,7 @@
     Code
       set_dependency("hamper", "partition", c("glmnet", "stats"))
     Condition
-      Error in `check_eng_val()`:
+      Error in `set_dependency()`:
       ! Please supply a character string for an engine name (e.g. `'stats'`).
 
 ---
@@ -67,7 +67,7 @@
     Code
       set_model_engine("hamper", "partition", NULL)
     Condition
-      Error in `check_eng_val()`:
+      Error in `set_model_engine()`:
       ! Please supply a character string for an engine name (e.g. `'stats'`).
 
 # set_dependency() errors with wrong `pkg` argument
@@ -75,7 +75,7 @@
     Code
       set_dependency("duck", "partition", "stats")
     Condition
-      Error in `check_pkg_val()`:
+      Error in `set_dependency()`:
       ! Please supply a single character value for the package name.
 
 ---
@@ -83,7 +83,7 @@
     Code
       set_dependency("duck", "partition", "stats", c("glmnet", "stats"))
     Condition
-      Error in `check_pkg_val()`:
+      Error in `set_dependency()`:
       ! Please supply a single character value for the package name.
 
 ---
@@ -91,7 +91,7 @@
     Code
       set_dependency("duck", "partition", "stats", NULL)
     Condition
-      Error in `check_pkg_val()`:
+      Error in `set_dependency()`:
       ! Please supply a single character value for the package name.
 
 # set_dependency() errors if engine doesn't match

@@ -3,7 +3,7 @@
     Code
       set_model_mode("wagon")
     Condition
-      Error in `check_model_val()`:
+      Error in `set_model_mode()`:
       ! Model `wagon` has not been registered.
 
 ---
@@ -19,7 +19,7 @@
     Code
       set_model_mode("glass")
     Condition
-      Error in `check_mode_val()`:
+      Error in `set_model_mode()`:
       ! Please supply a character string for a mode (e.g. `'partition'`).
 
 ---
@@ -27,7 +27,7 @@
     Code
       set_model_mode("glass", c("classification", "regression"))
     Condition
-      Error in `check_mode_val()`:
+      Error in `set_model_mode()`:
       ! Please supply a character string for a mode (e.g. `'partition'`).
 
 ---
@@ -35,6 +35,6 @@
     Code
       set_model_mode("glass", NULL)
     Condition
-      Error in `check_mode_val()`:
+      Error in `set_model_mode()`:
       ! Please supply a character string for a mode (e.g. `'partition'`).
 
