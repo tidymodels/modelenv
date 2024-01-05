@@ -4,7 +4,7 @@
 \alias{check_spec_mode_engine_val}
 \title{Error handling for unknown mode}
 \usage{
-check_spec_mode_engine_val(model, mode, eng)
+check_spec_mode_engine_val(model, mode, eng, call = rlang::caller_env())
 }
 \arguments{
 \item{model}{Character of specific model}
@@ -12,6 +12,11 @@ check_spec_mode_engine_val(model, mode, eng)
 \item{mode}{Character of specific mode}
 
 \item{eng}{Character of specific engine}
+
+\item{call}{The execution environment of a currently
+running function, e.g. \code{caller_env()}. The function will be
+mentioned in error messages as the source of the error. See the
+\code{call} argument of \code{\link[rlang:abort]{abort()}} for more information.}
 }
 \value{
 An error

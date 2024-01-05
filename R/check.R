@@ -9,7 +9,9 @@
 #' library(rlang)
 #' tmp <- catch_cnd(stop_incompatible_mode("partition"))
 #' @export
-stop_incompatible_mode <- function(spec_modes, eng = NULL, model = NULL) {
+stop_incompatible_mode <- function(spec_modes,
+                                   eng = NULL,
+                                   model = NULL) {
   if (is.null(eng) & is.null(model)) {
     msg <- "Available modes are: "
   }
@@ -32,7 +34,7 @@ stop_incompatible_mode <- function(spec_modes, eng = NULL, model = NULL) {
   rlang::abort(msg)
 }
 
-check_model_val <- function(model) {
+check_model_val <- function(model, call = rlang::caller_env()) {
   if (rlang::is_missing(model) || length(model) != 1 || !is.character(model)) {
     rlang::abort(
       "Please supply a character string for a model name (e.g. `'k_means'`)."
@@ -42,25 +44,30 @@ check_model_val <- function(model) {
   current <- get_model_env()
 
   if (!any(current$models == model)) {
-    rlang::abort(glue::glue("Model `{model}` has not been registered."))
+    rlang::abort(
+      glue::glue("Model `{model}` has not been registered."),
+      call = call
+    )
   }
 
   invisible(NULL)
 }
 
-check_mode_val <- function(mode) {
+check_mode_val <- function(mode, call = rlang::caller_env()) {
   if (rlang::is_missing(mode) || length(mode) != 1 || !is.character(mode)) {
     rlang::abort(
-      "Please supply a character string for a mode (e.g. `'partition'`)."
+      "Please supply a character string for a mode (e.g. `'partition'`).",
+      call = call
     )
   }
   invisible(NULL)
 }
 
-check_eng_val <- function(eng) {
+check_eng_val <- function(eng, call = rlang::caller_env()) {
   if (rlang::is_missing(eng) || length(eng) != 1 || !is.character(eng)) {
     rlang::abort(
-      "Please supply a character string for an engine name (e.g. `'stats'`)."
+      "Please supply a character string for an engine name (e.g. `'stats'`).",
+      call = call
     )
   }
   invisible(NULL)
@@ -74,16 +81,22 @@ check_eng_val <- function(eng) {
 #' @param mode Character of specific mode
 #' @param eng Character of specific engine
 #'
+#' @inheritParams rlang::args_error_context
+#'
 #' @return An error
 #' @examples
 #' library(rlang)
 #' tmp <- catch_cnd(check_spec_mode_engine_val("turtle", "partition", "vegan"))
 #' @export
-check_spec_mode_engine_val <- function(model, mode, eng) {
+check_spec_mode_engine_val <- function(model,
+                                       mode,
+                                       eng,
+                                       call = rlang::caller_env()) {
   all_modes <- get_from_env(paste0(model, "_modes"))
   if (!(mode %in% all_modes)) {
     rlang::abort(
-      glue::glue("'{mode}' is not a known mode for model `{model}()`.")
+      glue::glue("'{mode}' is not a known mode for model `{model}()`."),
+      call = call
     )
   }
 
@@ -99,7 +112,8 @@ check_spec_mode_engine_val <- function(model, mode, eng) {
       paste0(
         "Engine '", eng, "' is not supported for `", model, "()`. See ",
         "`show_engines('", model, "')`."
-      )
+      ),
+      call = call
     )
   }
 

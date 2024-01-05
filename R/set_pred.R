@@ -102,13 +102,21 @@ get_pred_type <- function(model, type) {
   vctrs::vec_slice(all_preds, all_preds$type == type)
 }
 
-check_pred_info <- function(pred_obj, type) {
+check_pred_info <- function(pred_obj, type, call = rlang::caller_env()) {
+  if (rlang::is_missing(pred_obj)) {
+    rlang::abort(
+      "Argument `value` is missing, with no default.",
+      call = call
+    )
+  }
+
   if (all(type != pred_types)) {
     rlang::abort(
       glue::glue(
         "The prediction type should be one of: ",
         glue::glue_collapse(glue::glue("'{pred_types}'"), sep = ", ")
-      )
+      ),
+      call = call
     )
   }
 
@@ -118,21 +126,28 @@ check_pred_info <- function(pred_obj, type) {
       glue::glue(
         "The `predict` module should have elements: ",
         glue::glue_collapse(glue::glue("`{exp_nms}`"), sep = ", ")
-      )
+      ),
+      call = call
     )
   }
 
   if (!is.null(pred_obj$pre) & !is.function(pred_obj$pre)) {
-    rlang::abort("The `pre` module should be null or a function: ")
+    rlang::abort(
+      "The `pre` module should be null or a function: ",
+      call = call
+    )
   }
   if (!is.null(pred_obj$post) & !is.function(pred_obj$post)) {
-    rlang::abort("The `post` module should be null or a function: ")
+    rlang::abort(
+      "The `post` module should be null or a function: ",
+      call = call
+    )
   }
 
-  check_func_val(pred_obj$func)
+  check_func_val(pred_obj$func, call = call)
 
   if (!is.list(pred_obj$args)) {
-    rlang::abort("The `args` element should be a list.")
+    rlang::abort("The `args` element should be a list.", call = call)
   }
 
   invisible(NULL)

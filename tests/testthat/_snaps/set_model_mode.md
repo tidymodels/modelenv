@@ -2,34 +2,39 @@
 
     Code
       set_model_mode("wagon")
-    Error <rlang_error>
-      Model `wagon` has not been registered.
+    Condition
+      Error in `set_model_mode()`:
+      ! Model `wagon` has not been registered.
 
 ---
 
     Code
       set_model_mode(c("boombox", "egg"), "classification")
-    Error <rlang_error>
-      Please supply a character string for a model name (e.g. `'k_means'`).
+    Condition
+      Error in `check_model_val()`:
+      ! Please supply a character string for a model name (e.g. `'k_means'`).
 
 # set_model_mode() errors with wrong `mode` argument
 
     Code
       set_model_mode("glass")
-    Error <rlang_error>
-      Please supply a character string for a mode (e.g. `'partition'`).
+    Condition
+      Error in `set_model_mode()`:
+      ! Please supply a character string for a mode (e.g. `'partition'`).
 
 ---
 
     Code
       set_model_mode("glass", c("classification", "regression"))
-    Error <rlang_error>
-      Please supply a character string for a mode (e.g. `'partition'`).
+    Condition
+      Error in `set_model_mode()`:
+      ! Please supply a character string for a mode (e.g. `'partition'`).
 
 ---
 
     Code
       set_model_mode("glass", NULL)
-    Error <rlang_error>
-      Please supply a character string for a mode (e.g. `'partition'`).
+    Condition
+      Error in `set_model_mode()`:
+      ! Please supply a character string for a mode (e.g. `'partition'`).
 

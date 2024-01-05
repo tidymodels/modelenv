@@ -91,9 +91,9 @@ get_encoding <- function(model) {
   get_from_env(nm)
 }
 
-check_encodings <- function(x) {
+check_encodings <- function(x, call = rlang::caller_env()) {
   if (rlang::is_missing(x) || !is.list(x)) {
-    rlang::abort("`values` should be a list.")
+    rlang::abort("`values` should be a list.", call = call)
   }
   req_args <- list(
     predictor_indicators = rlang::na_chr,
@@ -108,7 +108,8 @@ check_encodings <- function(x) {
       glue::glue(
         "The values passed to `set_encoding()` are missing arguments: ",
         paste0("'", missing_args, "'", collapse = ", ")
-      )
+      ),
+      call = call
     )
   }
   extra_args <- setdiff(names(x), names(req_args))
@@ -117,14 +118,16 @@ check_encodings <- function(x) {
       glue::glue(
         "The values passed to `set_encoding()` had extra arguments: ",
         paste0("'", extra_args, "'", collapse = ", ")
-      )
+      ),
+      call = call
     )
   }
   invisible(x)
 }
 
 is_discordant_info <- function(model, mode, eng, candidate,
-                               pred_type = NULL, component = "fit") {
+                               pred_type = NULL, component = "fit",
+                               call = rlang::caller_env()) {
   current <- get_from_env(paste0(model, "_", component))
   if (is.null(current)) {
     return(TRUE)
@@ -153,7 +156,8 @@ is_discordant_info <- function(model, mode, eng, candidate,
         "The combination of engine '{eng}' and mode '{mode}' {p_type} already ",
         "has {component} data for model '{model}' and the new information ",
         "being registered is different."
-      )
+      ),
+      call = call
     )
   }
 
