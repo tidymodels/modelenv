@@ -171,7 +171,7 @@ check_func_val <- function(func, call = rlang::caller_env()) {
 
   nms <- sort(names(func))
 
-  if (all(is.null(nms))) {
+  if (rlang::is_missing(func) || all(is.null(nms))) {
     rlang::abort(msg, call = call)
   }
 
