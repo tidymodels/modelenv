@@ -4,15 +4,15 @@
       set_model_arg("light")
     Condition
       Error in `set_model_arg()`:
-      ! Model `light` has not been registered.
+      ! Model "light" has not been registered.
 
 ---
 
     Code
       set_model_arg(model = c("phone", "sock"))
     Condition
-      Error in `check_model_val()`:
-      ! Please supply a character string for a model name (e.g. `'k_means'`).
+      Error in `set_model_arg()`:
+      ! Please supply a character string for a model name (e.g. "k_means"). Not a character vector.
 
 # set_model_arg() errors with wrong `engine` argument
 
@@ -20,7 +20,7 @@
       set_model_arg("thermos")
     Condition
       Error in `set_model_arg()`:
-      ! Please supply a character string for an engine name (e.g. `'stats'`).
+      ! Please supply a character string for an engine name (e.g. "stats").
 
 ---
 
@@ -28,7 +28,7 @@
       set_model_arg("thermos", c("glmnet", "stats"))
     Condition
       Error in `set_model_arg()`:
-      ! Please supply a character string for an engine name (e.g. `'stats'`).
+      ! Please supply a character string for an engine name (e.g. "stats"). Not a character vector.
 
 ---
 
@@ -36,7 +36,7 @@
       set_model_arg("thermos", NULL)
     Condition
       Error in `set_model_arg()`:
-      ! Please supply a character string for an engine name (e.g. `'stats'`).
+      ! Please supply a character string for an engine name (e.g. "stats"). Not NULL.
 
 # set_model_arg() errors with wrong `exposed` argument
 
@@ -93,7 +93,7 @@
       set_model_arg(model = "unicorn", eng = "stats", exposed = "method", original = "moethod")
     Condition
       Error in `set_model_arg()`:
-      ! `func` should be a named vector with element 'fun' and the optional  elements 'pkg', 'range', 'trans', and 'values'. `func` and 'pkg' should both be single character strings.
+      ! `func` should be a named vector with element `fun` and the optional elements `pkg`, `range`, `trans`, and `values`. `func` and `pkg` should both be single character strings.
 
 ---
 
@@ -102,7 +102,7 @@
         func = c("not", "method"))
     Condition
       Error in `set_model_arg()`:
-      ! `func` should be a named vector with element 'fun' and the optional  elements 'pkg', 'range', 'trans', and 'values'. `func` and 'pkg' should both be single character strings.
+      ! `func` should be a named vector with element `fun` and the optional elements `pkg`, `range`, `trans`, and `values`. `func` and `pkg` should both be single character strings.
 
 ---
 
@@ -111,7 +111,7 @@
         func = NULL)
     Condition
       Error in `set_model_arg()`:
-      ! `func` should be a named vector with element 'fun' and the optional  elements 'pkg', 'range', 'trans', and 'values'. `func` and 'pkg' should both be single character strings.
+      ! `func` should be a named vector with element `fun` and the optional elements `pkg`, `range`, `trans`, and `values`. `func` and `pkg` should both be single character strings.
 
 # set_model_arg() errors with wrong `has_submodel` argument
 

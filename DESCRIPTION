@@ -13,8 +13,9 @@ Description: An developer focused, low dependency package in 'tidymodels' that
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3.9000
+RoxygenNote: 7.3.2
 Imports: 
+    cli,
     glue,
     rlang,
     tibble,

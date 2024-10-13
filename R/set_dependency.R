@@ -48,10 +48,8 @@ set_dependency <- function(model, mode, eng, pkg) {
   has_engine <- vctrs::vec_unique(has_engine)
 
   if (nrow(has_engine) != 1) {
-    rlang::abort(
-      glue::glue(
-        "The engine '{eng}' has not been registered for model '{model}'."
-      )
+    cli::cli_abort(
+      "The engine {.val {eng}} has not been registered for model {.val {model}}."
     )
   }
 
@@ -59,8 +57,8 @@ set_dependency <- function(model, mode, eng, pkg) {
   # check mode
   all_modes <- unique(model_info$mode[model_info$engine == eng])
   if (!any(mode == all_modes)) {
-    rlang::abort(
-      glue::glue("mode '{mode}' is not a valid mode for '{model}'.")
+    cli::cli_abort(
+      "Mode {.val {mode}} is not a valid mode for {.val {model}}."
     )
   }
 
@@ -111,14 +109,4 @@ get_dependency <- function(model) {
   check_model_val(model)
   pkg_name <- paste0(model, "_pkgs")
   rlang::env_get(get_model_env(), pkg_name)
-}
-
-check_pkg_val <- function(pkg, call = rlang::caller_env()) {
-  if (rlang::is_missing(pkg) || length(pkg) != 1 || !is.character(pkg)) {
-    rlang::abort(
-      "Please supply a single character value for the package name.",
-      call = call
-    )
-  }
-  invisible(NULL)
 }

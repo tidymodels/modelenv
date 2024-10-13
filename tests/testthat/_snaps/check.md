@@ -4,7 +4,8 @@
       check_spec_mode_engine_val("hoop", "raw", "stats")
     Condition
       Error in `stop_incompatible_mode()`:
-      ! Available modes for engine stats are: 'unknown', 'partition'
+      x Available modes for engine stats are:
+      * "unknown" and "partition".
 
 # stop_incompatible_mode() works
 
@@ -12,7 +13,8 @@
       stop_incompatible_mode(spec_modes = "partition")
     Condition
       Error in `stop_incompatible_mode()`:
-      ! Available modes are: 'partition'
+      x Available modes are:
+      * "partition".
 
 ---
 
@@ -20,7 +22,8 @@
       stop_incompatible_mode(spec_modes = c("partition", "raw"))
     Condition
       Error in `stop_incompatible_mode()`:
-      ! Available modes are: 'partition', 'raw'
+      x Available modes are:
+      * "partition" and "raw".
 
 ---
 
@@ -28,7 +31,8 @@
       stop_incompatible_mode(spec_modes = c("partition", "raw", "another one"))
     Condition
       Error in `stop_incompatible_mode()`:
-      ! Available modes are: 'partition', 'raw', 'another one'
+      x Available modes are:
+      * "partition", "raw", and "another one".
 
 ---
 
@@ -36,7 +40,8 @@
       stop_incompatible_mode(spec_modes = "partition", eng = "stats")
     Condition
       Error in `stop_incompatible_mode()`:
-      ! Available modes for engine stats are: 'partition'
+      x Available modes for engine stats are:
+      * "partition".
 
 ---
 
@@ -44,7 +49,8 @@
       stop_incompatible_mode(spec_modes = c("partition", "raw"), eng = "stats")
     Condition
       Error in `stop_incompatible_mode()`:
-      ! Available modes for engine stats are: 'partition', 'raw'
+      x Available modes for engine stats are:
+      * "partition" and "raw".
 
 ---
 
@@ -52,7 +58,8 @@
       stop_incompatible_mode(spec_modes = c("partition", "raw", "another one"), eng = "stats")
     Condition
       Error in `stop_incompatible_mode()`:
-      ! Available modes for engine stats are: 'partition', 'raw', 'another one'
+      x Available modes for engine stats are:
+      * "partition", "raw", and "another one".
 
 ---
 
@@ -60,7 +67,8 @@
       stop_incompatible_mode(spec_modes = "partition", model = "shallow")
     Condition
       Error in `stop_incompatible_mode()`:
-      ! Available modes for model type shallow are: 'partition'
+      x Available modes for model type shallow are:
+      * "partition".
 
 ---
 
@@ -68,7 +76,8 @@
       stop_incompatible_mode(spec_modes = c("partition", "raw"), model = "shallow")
     Condition
       Error in `stop_incompatible_mode()`:
-      ! Available modes for model type shallow are: 'partition', 'raw'
+      x Available modes for model type shallow are:
+      * "partition" and "raw".
 
 ---
 
@@ -77,7 +86,8 @@
       model = "shallow")
     Condition
       Error in `stop_incompatible_mode()`:
-      ! Available modes for model type shallow are: 'partition', 'raw', 'another one'
+      x Available modes for model type shallow are:
+      * "partition", "raw", and "another one".
 
 ---
 
@@ -85,7 +95,8 @@
       stop_incompatible_mode(spec_modes = "partition", eng = "stats", model = "shallow")
     Condition
       Error in `stop_incompatible_mode()`:
-      ! Available modes for model type shallow with engine stats are: 'partition'
+      x Available modes for model type shallow with engine stats are:
+      * "partition".
 
 ---
 
@@ -94,7 +105,8 @@
       model = "shallow")
     Condition
       Error in `stop_incompatible_mode()`:
-      ! Available modes for model type shallow with engine stats are: 'partition', 'raw'
+      x Available modes for model type shallow with engine stats are:
+      * "partition" and "raw".
 
 ---
 
@@ -103,5 +115,6 @@
       model = "shallow")
     Condition
       Error in `stop_incompatible_mode()`:
-      ! Available modes for model type shallow with engine stats are: 'partition', 'raw', 'another one'
+      x Available modes for model type shallow with engine stats are:
+      * "partition", "raw", and "another one".
 

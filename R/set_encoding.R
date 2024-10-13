@@ -93,8 +93,15 @@ get_encoding <- function(model) {
 
 check_encodings <- function(x, call = rlang::caller_env()) {
   if (rlang::is_missing(x) || !is.list(x)) {
-    rlang::abort("`values` should be a list.", call = call)
+    msg <- "{.arg options} should be a list."
+
+    if (!rlang::is_missing(x)) {
+      msg <- paste0(msg, " Not {.obj_type_friendly {options}}.")
+    }
+
+    cli::cli_abort(msg, call = call)
   }
+
   req_args <- list(
     predictor_indicators = rlang::na_chr,
     compute_intercept = rlang::na_lgl,
@@ -104,20 +111,20 @@ check_encodings <- function(x, call = rlang::caller_env()) {
 
   missing_args <- setdiff(names(req_args), names(x))
   if (length(missing_args) > 0) {
-    rlang::abort(
-      glue::glue(
-        "The values passed to `set_encoding()` are missing arguments: ",
-        paste0("'", missing_args, "'", collapse = ", ")
+    cli::cli_abort(
+      c(
+        x = "The values passed to {.fn set_encoding} had missing arguments:",
+        i = "{missing_args}."
       ),
       call = call
     )
   }
   extra_args <- setdiff(names(x), names(req_args))
   if (length(extra_args) > 0) {
-    rlang::abort(
-      glue::glue(
-        "The values passed to `set_encoding()` had extra arguments: ",
-        paste0("'", extra_args, "'", collapse = ", ")
+    cli::cli_abort(
+      c(
+      x = "The values passed to {.fn set_encoding} had extra arguments:",
+      i = "{extra_args}."
       ),
       call = call
     )
@@ -151,12 +158,10 @@ is_discordant_info <- function(model, mode, eng, candidate,
   same_info <- isTRUE(all.equal(current, candidate, check.environment = FALSE))
 
   if (!same_info) {
-    rlang::abort(
-      glue::glue(
-        "The combination of engine '{eng}' and mode '{mode}' {p_type} already ",
-        "has {component} data for model '{model}' and the new information ",
-        "being registered is different."
-      ),
+    cli::cli_abort(
+      "The combination of engine {.val {eng}} and mode {.val {mode}} {p_type} \\
+      already has {component} data for model {.val {model}} and the new \\
+      information being registered is different.",
       call = call
     )
   }

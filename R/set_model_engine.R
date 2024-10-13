@@ -42,10 +42,8 @@ check_mode_for_new_engine <- function(model, eng, mode,
                                       call = rlang::caller_env()) {
   all_modes <- get_from_env(paste0(model, "_modes"))
   if (!(mode %in% all_modes)) {
-    rlang::abort(
-      glue::glue(
-        "'{mode}' is not a known mode for model `{model}()`."
-      ),
+    cli::cli_abort(
+      "'{mode}' is not a known mode for model {.fn {model}}.",
       call = call
     )
   }
@@ -54,10 +52,8 @@ check_mode_for_new_engine <- function(model, eng, mode,
   engs <- vctrs::vec_slice(engs, engs$engine == eng)
   engs <- vctrs::vec_slice(engs, engs$mode == mode)
   if (nrow(engs) > 0) {
-    rlang::abort(
-      glue::glue(
-        "Engine '{eng}' already exists for `{model}()` with mode `{mode}`."
-      ),
+    cli::cli_abort(
+      "Engine {.val {eng}} already exists for {.fn {model}} with mode {.val {mode}}.",
       call = call
     )
   }
