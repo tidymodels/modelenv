@@ -13,7 +13,7 @@
 #' set_new_model("shallow_learning_model")
 #' @export
 set_new_model <- function(model) {
-  if (rlang::is_missing(model) || length(model) != 1 || !is.character(model)) {
+  if (is_missing(model) || length(model) != 1 || !is.character(model)) {
     cli::cli_abort(
       "Please supply a character string for a model name (e.g. {.code 'k_means'})."
     )

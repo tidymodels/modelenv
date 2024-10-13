@@ -108,5 +108,5 @@ set_dependency <- function(model, mode, eng, pkg) {
 get_dependency <- function(model) {
   check_model_val(model)
   pkg_name <- paste0(model, "_pkgs")
-  rlang::env_get(get_model_env(), pkg_name)
+  env_get(get_model_env(), pkg_name)
 }

@@ -70,14 +70,14 @@ set_model_arg <- function(model, eng, exposed, original, func, has_submodel) {
 #' @export
 get_model_arg <- function(model, eng) {
   m_env <- get_model_env()
-  args <- rlang::env_get(m_env, paste0(model, "_args"))
+  args <- env_get(m_env, paste0(model, "_args"))
   args <- vctrs::vec_slice(args, args$engine == eng)
   args <- args[names(args) != "engine"]
   args
 }
 
-check_arg_val <- function(arg, call = rlang::caller_env()) {
-  if (rlang::is_missing(arg) || length(arg) != 1 || !is.character(arg)) {
+check_arg_val <- function(arg, call = caller_env()) {
+  if (is_missing(arg) || length(arg) != 1 || !is.character(arg)) {
     cli::cli_abort(
       "Please supply a character string for the argument.",
       call = call
@@ -86,8 +86,8 @@ check_arg_val <- function(arg, call = rlang::caller_env()) {
   invisible(NULL)
 }
 
-check_submodels_val <- function(has_submodel, call = rlang::caller_env()) {
-  if (rlang::is_missing(has_submodel) ||
+check_submodels_val <- function(has_submodel, call = caller_env()) {
+  if (is_missing(has_submodel) ||
       !is.logical(has_submodel) ||
       length(has_submodel) != 1) {
     cli::cli_abort(

@@ -92,11 +92,11 @@ set_fit <- function(model, mode, eng, value) {
 get_fit <- function(model) {
   check_model_val(model)
   fit_name <- paste0(model, "_fit")
-  rlang::env_get(get_model_env(), fit_name)
+  env_get(get_model_env(), fit_name)
 }
 
-check_fit_info <- function(fit_obj, call = rlang::caller_env()) {
-  if (rlang::is_missing(fit_obj) || is.null(fit_obj)) {
+check_fit_info <- function(fit_obj, call = caller_env()) {
+  if (is_missing(fit_obj) || is.null(fit_obj)) {
     cli::cli_abort("The {.arg fit} module cannot be {.code NULL}.", call = call)
   }
 
@@ -152,7 +152,7 @@ check_fit_info <- function(fit_obj, call = rlang::caller_env()) {
   invisible(NULL)
 }
 
-check_interface_val <- function(x, call = rlang::caller_env()) {
+check_interface_val <- function(x, call = caller_env()) {
   exp_interf <- c("data.frame", "formula", "matrix")
   if (length(x) != 1 || !(x %in% exp_interf)) {
     cli::cli_abort(
@@ -166,13 +166,13 @@ check_interface_val <- function(x, call = rlang::caller_env()) {
   invisible(NULL)
 }
 
-check_func_val <- function(func, call = rlang::caller_env()) {
+check_func_val <- function(func, call = caller_env()) {
   msg <- "{.arg func} should be a named vector with element {.var fun} and \\
          the optional elements {.var pkg}, {.var range}, {.var trans}, and \\
          {.var values}. {.var func} and {.var pkg} should both be single \\
          character strings."
 
-  if (rlang::is_missing(func) || all(is.null(sort(names(func))))) {
+  if (is_missing(func) || all(is.null(sort(names(func))))) {
     cli::cli_abort(msg, call = call)
   }
 

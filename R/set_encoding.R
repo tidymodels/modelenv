@@ -91,11 +91,11 @@ get_encoding <- function(model) {
   get_from_env(nm)
 }
 
-check_encodings <- function(x, call = rlang::caller_env()) {
-  if (rlang::is_missing(x) || !is.list(x)) {
+check_encodings <- function(x, call = caller_env()) {
+  if (is_missing(x) || !is.list(x)) {
     msg <- "{.arg options} should be a list."
 
-    if (!rlang::is_missing(x)) {
+    if (!is_missing(x)) {
       msg <- paste0(msg, " Not {.obj_type_friendly {options}}.")
     }
 
@@ -103,10 +103,10 @@ check_encodings <- function(x, call = rlang::caller_env()) {
   }
 
   req_args <- list(
-    predictor_indicators = rlang::na_chr,
-    compute_intercept = rlang::na_lgl,
-    remove_intercept = rlang::na_lgl,
-    allow_sparse_x = rlang::na_lgl
+    predictor_indicators = na_chr,
+    compute_intercept = na_lgl,
+    remove_intercept = na_lgl,
+    allow_sparse_x = na_lgl
   )
 
   missing_args <- setdiff(names(req_args), names(x))
@@ -134,7 +134,7 @@ check_encodings <- function(x, call = rlang::caller_env()) {
 
 is_discordant_info <- function(model, mode, eng, candidate,
                                pred_type = NULL, component = "fit",
-                               call = rlang::caller_env()) {
+                               call = caller_env()) {
   current <- get_from_env(paste0(model, "_", component))
   if (is.null(current)) {
     return(TRUE)
