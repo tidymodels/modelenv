@@ -44,7 +44,7 @@
       set_model_arg(model = "marker", eng = "stats")
     Condition
       Error in `set_model_arg()`:
-      ! Please supply a character string for the argument.
+      ! `arg` must be a single string, not absent.
 
 ---
 
@@ -52,7 +52,7 @@
       set_model_arg(model = "marker", eng = "stats", exposed = c("glmnet", "stats"))
     Condition
       Error in `set_model_arg()`:
-      ! Please supply a character string for the argument.
+      ! `arg` must be a single string, not a character vector.
 
 ---
 
@@ -60,7 +60,7 @@
       set_model_arg(model = "marker", eng = "stats", exposed = NULL)
     Condition
       Error in `set_model_arg()`:
-      ! Please supply a character string for the argument.
+      ! `arg` must be a single string, not `NULL`.
 
 # set_model_arg() errors with wrong `original` argument
 
@@ -68,7 +68,7 @@
       set_model_arg(model = "mustache", eng = "stats", exposed = "method")
     Condition
       Error in `set_model_arg()`:
-      ! Please supply a character string for the argument.
+      ! `arg` must be a single string, not absent.
 
 ---
 
@@ -77,7 +77,7 @@
         "not", "method"))
     Condition
       Error in `set_model_arg()`:
-      ! Please supply a character string for the argument.
+      ! `arg` must be a single string, not a character vector.
 
 ---
 
@@ -85,7 +85,7 @@
       set_model_arg(model = "mustache", eng = "stats", exposed = "method", original = NULL)
     Condition
       Error in `set_model_arg()`:
-      ! Please supply a character string for the argument.
+      ! `arg` must be a single string, not `NULL`.
 
 # set_model_arg() errors with wrong `func` argument
 
@@ -120,7 +120,7 @@
         func = list(pkg = "stats", fun = "lm"))
     Condition
       Error in `set_model_arg()`:
-      ! The `submodels` argument should be a single logical.
+      ! `has_submodel` must be a logical vector, not absent.
 
 ---
 
@@ -129,7 +129,7 @@
         func = list(pkg = "stats", fun = "lm"), has_submodel = "yes")
     Condition
       Error in `set_model_arg()`:
-      ! The `submodels` argument should be a single logical.
+      ! `has_submodel` must be a logical vector, not the string "yes".
 
 ---
 
@@ -138,5 +138,5 @@
         func = list(pkg = "stats", fun = "lm"), has_submodel = NULL)
     Condition
       Error in `set_model_arg()`:
-      ! The `submodels` argument should be a single logical.
+      ! `has_submodel` must be a logical vector, not `NULL`.
 

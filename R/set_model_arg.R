@@ -77,23 +77,13 @@ get_model_arg <- function(model, eng) {
 }
 
 check_arg_val <- function(arg, call = caller_env()) {
-  if (is_missing(arg) || length(arg) != 1 || !is.character(arg)) {
-    cli::cli_abort(
-      "Please supply a character string for the argument.",
-      call = call
-    )
-  }
+  check_string(arg, call = call)
+
   invisible(NULL)
 }
 
 check_submodels_val <- function(has_submodel, call = caller_env()) {
-  if (is_missing(has_submodel) ||
-      !is.logical(has_submodel) ||
-      length(has_submodel) != 1) {
-    cli::cli_abort(
-      "The {.arg submodels} argument should be a single logical.",
-      call = call
-    )
-  }
+  check_logical(has_submodel, call = call)
+
   invisible(NULL)
 }

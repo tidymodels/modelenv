@@ -34,12 +34,8 @@ get_from_env <- function(items) {
 #' @rdname get_model_env
 #' @export
 set_env_val <- function(name, value) {
-  if (length(name) != 1 || !is.character(name)) {
-    cli::cli_abort(
-      "{.arg name} should be a single character value, \\
-      not {.obj_type_friendly {name}}."
-    )
-  }
+  check_string(name)
+
   mod_env <- get_model_env()
   x <- list(value)
   names(x) <- name
