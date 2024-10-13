@@ -4,7 +4,7 @@
       set_model_engine("panda", "partition", "stats")
     Condition
       Error in `set_model_engine()`:
-      ! Engine 'stats' already exists for `panda()` with mode `partition`.
+      ! Engine "stats" already exists for `panda()` with mode "partition".
 
 # set_model_engine() errors with wrong `model` argument
 
@@ -12,15 +12,15 @@
       set_model_engine("stickynotes")
     Condition
       Error in `set_model_engine()`:
-      ! Model `stickynotes` has not been registered.
+      ! Model "stickynotes" has not been registered.
 
 ---
 
     Code
       set_model_engine(c("boombox", "egg"), "partition", "stats")
     Condition
-      Error in `check_model_val()`:
-      ! Please supply a character string for a model name (e.g. `'k_means'`).
+      Error in `set_model_engine()`:
+      ! Please supply a character string for a model name (e.g. "k_means"). Not a character vector.
 
 # set_model_engine() errors with wrong `mode` argument
 
@@ -28,7 +28,7 @@
       set_model_engine("paper")
     Condition
       Error in `set_model_engine()`:
-      ! Please supply a character string for a mode (e.g. `'partition'`).
+      ! Please supply a character string for a mode (e.g. "partition").
 
 ---
 
@@ -36,7 +36,7 @@
       set_model_engine("paper", c("classification", "regression"))
     Condition
       Error in `set_model_engine()`:
-      ! Please supply a character string for a mode (e.g. `'partition'`).
+      ! Please supply a character string for a mode (e.g. "partition"). Not a character vector.
 
 ---
 
@@ -44,7 +44,7 @@
       set_model_engine("paper", NULL)
     Condition
       Error in `set_model_engine()`:
-      ! Please supply a character string for a mode (e.g. `'partition'`).
+      ! Please supply a character string for a mode (e.g. "partition"). Not NULL.
 
 ---
 
@@ -60,7 +60,7 @@
       set_model_engine("street", "partition")
     Condition
       Error in `set_model_engine()`:
-      ! Please supply a character string for an engine name (e.g. `'stats'`).
+      ! Please supply a character string for an engine name (e.g. "stats").
 
 ---
 
@@ -68,7 +68,7 @@
       set_model_engine("street", "partition", c("glmnet", "stats"))
     Condition
       Error in `set_model_engine()`:
-      ! Please supply a character string for an engine name (e.g. `'stats'`).
+      ! Please supply a character string for an engine name (e.g. "stats"). Not a character vector.
 
 ---
 
@@ -76,5 +76,5 @@
       set_model_engine("street", "partition", NULL)
     Condition
       Error in `set_model_engine()`:
-      ! Please supply a character string for an engine name (e.g. `'stats'`).
+      ! Please supply a character string for an engine name (e.g. "stats"). Not NULL.
 

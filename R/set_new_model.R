@@ -14,8 +14,8 @@
 #' @export
 set_new_model <- function(model) {
   if (rlang::is_missing(model) || length(model) != 1 || !is.character(model)) {
-    rlang::abort(
-      "Please supply a character string for a model name (e.g. `'k_means'`)."
+    cli::cli_abort(
+      "Please supply a character string for a model name (e.g. {.code 'k_means'})."
     )
   }
   current <- get_model_env()

@@ -4,7 +4,7 @@
       set_pred("light")
     Condition
       Error in `set_pred()`:
-      ! Model `light` has not been registered.
+      ! Model "light" has not been registered.
 
 ---
 
@@ -13,8 +13,8 @@
       value = list(pre = NULL, post = NULL, func = c(fun = "predict"), args = list(
         object = rlang::expr(object$fit), newdata = rlang::expr(new_data), type = "response")))
     Condition
-      Error in `check_model_val()`:
-      ! Please supply a character string for a model name (e.g. `'k_means'`).
+      Error in `set_pred()`:
+      ! Please supply a character string for a model name (e.g. "k_means"). Not a character vector.
 
 # set_pred() errors with wrong `mode` argument
 
@@ -22,7 +22,7 @@
       set_pred("game")
     Condition
       Error in `set_pred()`:
-      ! Please supply a character string for a mode (e.g. `'partition'`).
+      ! Please supply a character string for a mode (e.g. "partition").
 
 ---
 
@@ -30,7 +30,7 @@
       set_pred("game", c("classification", "regression"))
     Condition
       Error in `set_pred()`:
-      ! Please supply a character string for a mode (e.g. `'partition'`).
+      ! Please supply a character string for a mode (e.g. "partition"). Not a character vector.
 
 ---
 
@@ -38,7 +38,7 @@
       set_pred("game", NULL)
     Condition
       Error in `set_pred()`:
-      ! Please supply a character string for a mode (e.g. `'partition'`).
+      ! Please supply a character string for a mode (e.g. "partition"). Not NULL.
 
 ---
 
@@ -48,7 +48,7 @@
           object = rlang::expr(object$fit), newdata = rlang::expr(new_data), type = "response")))
     Condition
       Error in `set_pred()`:
-      ! 'not partition' is not a known mode for model `game()`.
+      ! "not partition" is not a known mode for model `game()`.
 
 # set_pred() errors with wrong `engine` argument
 
@@ -56,7 +56,7 @@
       set_pred("dog", "partition")
     Condition
       Error in `set_pred()`:
-      ! Please supply a character string for an engine name (e.g. `'stats'`).
+      ! Please supply a character string for an engine name (e.g. "stats").
 
 ---
 
@@ -64,7 +64,7 @@
       set_pred("dog", "partition", c("glmnet", "stats"))
     Condition
       Error in `set_pred()`:
-      ! Please supply a character string for an engine name (e.g. `'stats'`).
+      ! Please supply a character string for an engine name (e.g. "stats"). Not a character vector.
 
 ---
 
@@ -72,7 +72,7 @@
       set_model_engine("dog", "partition", NULL)
     Condition
       Error in `set_model_engine()`:
-      ! Please supply a character string for an engine name (e.g. `'stats'`).
+      ! Please supply a character string for an engine name (e.g. "stats"). Not NULL.
 
 # set_pred() errors with wrong `value` argument
 
@@ -88,7 +88,7 @@
       set_pred("trunk", "partition", "stats", "raw", NULL)
     Condition
       Error in `set_pred()`:
-      ! The `predict` module should have elements: `args`, `func`, `post`, `pre`
+      ! The `predict` module should have elements: `args`, `func`, `post`, and `pre`.
 
 ---
 
@@ -98,7 +98,7 @@
           object$fit), newdata = rlang::expr(new_data), type = "response")))
     Condition
       Error in `set_pred()`:
-      ! The `predict` module should have elements: `args`, `func`, `post`, `pre`
+      ! The `predict` module should have elements: `args`, `func`, `post`, and `pre`.
 
 ---
 
@@ -108,7 +108,7 @@
           object$fit), newdata = rlang::expr(new_data), type = "response")))
     Condition
       Error in `set_pred()`:
-      ! The `predict` module should have elements: `args`, `func`, `post`, `pre`
+      ! The `predict` module should have elements: `args`, `func`, `post`, and `pre`.
 
 ---
 
@@ -118,7 +118,7 @@
           fit), newdata = rlang::expr(new_data), type = "response")))
     Condition
       Error in `set_pred()`:
-      ! The `predict` module should have elements: `args`, `func`, `post`, `pre`
+      ! The `predict` module should have elements: `args`, `func`, `post`, and `pre`.
 
 ---
 
@@ -127,7 +127,7 @@
         value = list(pre = NULL, post = NULL, func = c(fun = "predict")))
     Condition
       Error in `set_pred()`:
-      ! The `predict` module should have elements: `args`, `func`, `post`, `pre`
+      ! The `predict` module should have elements: `args`, `func`, `post`, and `pre`.
 
 ---
 
@@ -137,7 +137,7 @@
           object = rlang::expr(object$fit), newdata = rlang::expr(new_data), type = "response")))
     Condition
       Error in `set_pred()`:
-      ! The `pre` module should be null or a function: 
+      ! The `pre` module should be `NULL` or a function.
 
 ---
 
@@ -147,7 +147,7 @@
           object = rlang::expr(object$fit), newdata = rlang::expr(new_data), type = "response")))
     Condition
       Error in `set_pred()`:
-      ! The `post` module should be null or a function: 
+      ! The `post` module should be `NULL` or a function.
 
 ---
 
@@ -166,7 +166,7 @@
           object = rlang::expr(object$fit), newdata = rlang::expr(new_data), type = "response")))
     Condition
       Error in `set_pred()`:
-      ! The prediction type should be one of: 'cluster', 'raw'
+      ! The prediction type should be one of: cluster and raw.
 
 # is_discordant_info() triggers for set_pred()
 
@@ -176,5 +176,5 @@
           object = rlang::expr(object$fit), newdata = rlang::expr(new_data), type = "response")))
     Condition
       Error in `set_pred()`:
-      ! The combination of engine 'stats' and mode 'partition' and prediction type 'raw' already has predict data for model 'diamond' and the new information being registered is different.
+      ! The combination of engine "stats" and mode "partition" and prediction type 'raw' already has predict data for model "diamond" and the new information being registered is different.
 

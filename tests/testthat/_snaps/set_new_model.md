@@ -28,7 +28,7 @@
       set_env_val(c("models", "modes"), NULL)
     Condition
       Error in `set_env_val()`:
-      ! `name` should be a single character value.
+      ! `name` should be a single character value, not a character vector.
 
 ---
 
@@ -36,5 +36,5 @@
       set_env_val(1, NULL)
     Condition
       Error in `set_env_val()`:
-      ! `name` should be a single character value.
+      ! `name` should be a single character value, not a number.
 

@@ -13,39 +13,42 @@ stop_incompatible_mode <- function(spec_modes,
                                    eng = NULL,
                                    model = NULL) {
   if (is.null(eng) & is.null(model)) {
-    msg <- "Available modes are: "
+    msg <- "Available modes are:"
   }
   if (!is.null(eng) & is.null(model)) {
-    msg <- glue::glue("Available modes for engine {eng} are: ")
+    msg <- "Available modes for engine {eng} are:"
   }
   if (is.null(eng) & !is.null(model)) {
-    msg <- glue::glue("Available modes for model type {model} are: ")
+    msg <- "Available modes for model type {model} are:"
   }
   if (!is.null(eng) & !is.null(model)) {
-    msg <- glue::glue(
-      "Available modes for model type {model} with engine {eng} are: "
-    )
+    msg <- "Available modes for model type {model} with engine {eng} are:"
   }
 
-  msg <- glue::glue(
-    msg,
-    glue::glue_collapse(glue::glue("'{spec_modes}'"), sep = ", ")
+  cli::cli_abort(
+    c(
+      x = msg,
+      "*" = "{.val {spec_modes}}."
+    )
   )
-  rlang::abort(msg)
 }
 
 check_model_val <- function(model, call = rlang::caller_env()) {
   if (rlang::is_missing(model) || length(model) != 1 || !is.character(model)) {
-    rlang::abort(
-      "Please supply a character string for a model name (e.g. `'k_means'`)."
-    )
+    msg <- "Please supply a character string for a model name (e.g. {.val k_means})."
+    
+    if (!rlang::is_missing(model)) {
+      msg <- paste0(msg, " Not {.obj_type_friendly {model}}.")
+    }
+
+    cli::cli_abort(msg, call = call)
   }
 
   current <- get_model_env()
 
   if (!any(current$models == model)) {
-    rlang::abort(
-      glue::glue("Model `{model}` has not been registered."),
+    cli::cli_abort(
+      "Model {.val {model}} has not been registered.",
       call = call
     )
   }
@@ -55,20 +58,39 @@ check_model_val <- function(model, call = rlang::caller_env()) {
 
 check_mode_val <- function(mode, call = rlang::caller_env()) {
   if (rlang::is_missing(mode) || length(mode) != 1 || !is.character(mode)) {
-    rlang::abort(
-      "Please supply a character string for a mode (e.g. `'partition'`).",
-      call = call
-    )
+    msg <- "Please supply a character string for a mode (e.g. {.val partition})."
+    
+    if (!rlang::is_missing(mode)) {
+      msg <- paste0(msg, " Not {.obj_type_friendly {mode}}.")
+    }
+
+    cli::cli_abort(msg, call = call)
   }
   invisible(NULL)
 }
 
 check_eng_val <- function(eng, call = rlang::caller_env()) {
   if (rlang::is_missing(eng) || length(eng) != 1 || !is.character(eng)) {
-    rlang::abort(
-      "Please supply a character string for an engine name (e.g. `'stats'`).",
-      call = call
-    )
+    msg <- "Please supply a character string for an engine name (e.g. {.val stats})."
+    
+    if (!rlang::is_missing(eng)) {
+      msg <- paste0(msg, " Not {.obj_type_friendly {eng}}.")
+    }
+
+    cli::cli_abort(msg, call = call)
+  }
+  invisible(NULL)
+}
+
+check_pkg_val <- function(pkg, call = rlang::caller_env()) {
+  if (rlang::is_missing(pkg) || length(pkg) != 1 || !is.character(pkg)) {
+    msg <- "Please supply a character string for the package name."
+    
+    if (!rlang::is_missing(pkg)) {
+      msg <- paste0(msg, " Not {.obj_type_friendly {pkg}}.")
+    }
+
+    cli::cli_abort(msg, call = call)
   }
   invisible(NULL)
 }
@@ -94,8 +116,8 @@ check_spec_mode_engine_val <- function(model,
                                        call = rlang::caller_env()) {
   all_modes <- get_from_env(paste0(model, "_modes"))
   if (!(mode %in% all_modes)) {
-    rlang::abort(
-      glue::glue("'{mode}' is not a known mode for model `{model}()`."),
+    cli::cli_abort(
+      "{.val {mode}} is not a known mode for model {.fn {model}}.",
       call = call
     )
   }
@@ -108,10 +130,10 @@ check_spec_mode_engine_val <- function(model,
   spec_engs <- model_info$engine
   # engine is allowed to be NULL
   if (!is.null(eng) && !(eng %in% spec_engs)) {
-    rlang::abort(
-      paste0(
-        "Engine '", eng, "' is not supported for `", model, "()`. See ",
-        "`show_engines('", model, "')`."
+    cli::cli_abort(
+      c(
+        x = "Engine {.val {eng}} is not supported for {.fn {model}}",
+        i = "See {.code show_engines(\"{model}\")}."
       ),
       call = call
     )
