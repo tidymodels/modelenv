@@ -1,75 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://modelenv.tidymodels.org/404.html</loc>
-  </url>
-  <url>
-    <loc>https://modelenv.tidymodels.org/CODE_OF_CONDUCT.html</loc>
-  </url>
-  <url>
-    <loc>https://modelenv.tidymodels.org/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://modelenv.tidymodels.org/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://modelenv.tidymodels.org/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://modelenv.tidymodels.org/index.html</loc>
-  </url>
-  <url>
-    <loc>https://modelenv.tidymodels.org/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://modelenv.tidymodels.org/reference/check_spec_mode_engine_val.html</loc>
-  </url>
-  <url>
-    <loc>https://modelenv.tidymodels.org/reference/get_model_env.html</loc>
-  </url>
-  <url>
-    <loc>https://modelenv.tidymodels.org/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://modelenv.tidymodels.org/reference/is_unsupervised_fit.html</loc>
-  </url>
-  <url>
-    <loc>https://modelenv.tidymodels.org/reference/is_unsupervised_spec.html</loc>
-  </url>
-  <url>
-    <loc>https://modelenv.tidymodels.org/reference/modelenv-package.html</loc>
-  </url>
-  <url>
-    <loc>https://modelenv.tidymodels.org/reference/new_unsupervised_fit.html</loc>
-  </url>
-  <url>
-    <loc>https://modelenv.tidymodels.org/reference/new_unsupervised_spec.html</loc>
-  </url>
-  <url>
-    <loc>https://modelenv.tidymodels.org/reference/set_dependency.html</loc>
-  </url>
-  <url>
-    <loc>https://modelenv.tidymodels.org/reference/set_encoding.html</loc>
-  </url>
-  <url>
-    <loc>https://modelenv.tidymodels.org/reference/set_fit.html</loc>
-  </url>
-  <url>
-    <loc>https://modelenv.tidymodels.org/reference/set_model_arg.html</loc>
-  </url>
-  <url>
-    <loc>https://modelenv.tidymodels.org/reference/set_model_engine.html</loc>
-  </url>
-  <url>
-    <loc>https://modelenv.tidymodels.org/reference/set_model_mode.html</loc>
-  </url>
-  <url>
-    <loc>https://modelenv.tidymodels.org/reference/set_new_model.html</loc>
-  </url>
-  <url>
-    <loc>https://modelenv.tidymodels.org/reference/set_pred.html</loc>
-  </url>
-  <url>
-    <loc>https://modelenv.tidymodels.org/reference/stop_incompatible_mode.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://modelenv.tidymodels.org/404.html</loc></url>
+<url><loc>https://modelenv.tidymodels.org/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>https://modelenv.tidymodels.org/LICENSE-text.html</loc></url>
+<url><loc>https://modelenv.tidymodels.org/LICENSE.html</loc></url>
+<url><loc>https://modelenv.tidymodels.org/authors.html</loc></url>
+<url><loc>https://modelenv.tidymodels.org/index.html</loc></url>
+<url><loc>https://modelenv.tidymodels.org/news/index.html</loc></url>
+<url><loc>https://modelenv.tidymodels.org/reference/check_spec_mode_engine_val.html</loc></url>
+<url><loc>https://modelenv.tidymodels.org/reference/get_model_env.html</loc></url>
+<url><loc>https://modelenv.tidymodels.org/reference/index.html</loc></url>
+<url><loc>https://modelenv.tidymodels.org/reference/is_unsupervised_fit.html</loc></url>
+<url><loc>https://modelenv.tidymodels.org/reference/is_unsupervised_spec.html</loc></url>
+<url><loc>https://modelenv.tidymodels.org/reference/modelenv-package.html</loc></url>
+<url><loc>https://modelenv.tidymodels.org/reference/new_unsupervised_fit.html</loc></url>
+<url><loc>https://modelenv.tidymodels.org/reference/new_unsupervised_spec.html</loc></url>
+<url><loc>https://modelenv.tidymodels.org/reference/set_dependency.html</loc></url>
+<url><loc>https://modelenv.tidymodels.org/reference/set_encoding.html</loc></url>
+<url><loc>https://modelenv.tidymodels.org/reference/set_fit.html</loc></url>
+<url><loc>https://modelenv.tidymodels.org/reference/set_model_arg.html</loc></url>
+<url><loc>https://modelenv.tidymodels.org/reference/set_model_engine.html</loc></url>
+<url><loc>https://modelenv.tidymodels.org/reference/set_model_mode.html</loc></url>
+<url><loc>https://modelenv.tidymodels.org/reference/set_new_model.html</loc></url>
+<url><loc>https://modelenv.tidymodels.org/reference/set_pred.html</loc></url>
+<url><loc>https://modelenv.tidymodels.org/reference/stop_incompatible_mode.html</loc></url>
 </urlset>
+
