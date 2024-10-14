@@ -4,3 +4,7 @@
 .httr-oauth
 .DS_Store
 docs
+revdep/checks.noindex
+revdep/library.noindex
+revdep/data.sqlite
+revdep/cloud.noindex/*
