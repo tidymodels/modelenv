@@ -33,11 +33,11 @@ stop_incompatible_mode <- function(spec_modes,
   )
 }
 
-check_model_val <- function(model, call = rlang::caller_env()) {
-  if (rlang::is_missing(model) || length(model) != 1 || !is.character(model)) {
+check_model_val <- function(model, call = caller_env()) {
+  if (is_missing(model) || length(model) != 1 || !is.character(model)) {
     msg <- "Please supply a character string for a model name (e.g. {.val k_means})."
     
-    if (!rlang::is_missing(model)) {
+    if (!is_missing(model)) {
       msg <- paste0(msg, " Not {.obj_type_friendly {model}}.")
     }
 
@@ -56,11 +56,11 @@ check_model_val <- function(model, call = rlang::caller_env()) {
   invisible(NULL)
 }
 
-check_mode_val <- function(mode, call = rlang::caller_env()) {
-  if (rlang::is_missing(mode) || length(mode) != 1 || !is.character(mode)) {
+check_mode_val <- function(mode, call = caller_env()) {
+  if (is_missing(mode) || length(mode) != 1 || !is.character(mode)) {
     msg <- "Please supply a character string for a mode (e.g. {.val partition})."
     
-    if (!rlang::is_missing(mode)) {
+    if (!is_missing(mode)) {
       msg <- paste0(msg, " Not {.obj_type_friendly {mode}}.")
     }
 
@@ -69,11 +69,11 @@ check_mode_val <- function(mode, call = rlang::caller_env()) {
   invisible(NULL)
 }
 
-check_eng_val <- function(eng, call = rlang::caller_env()) {
-  if (rlang::is_missing(eng) || length(eng) != 1 || !is.character(eng)) {
+check_eng_val <- function(eng, call = caller_env()) {
+  if (is_missing(eng) || length(eng) != 1 || !is.character(eng)) {
     msg <- "Please supply a character string for an engine name (e.g. {.val stats})."
     
-    if (!rlang::is_missing(eng)) {
+    if (!is_missing(eng)) {
       msg <- paste0(msg, " Not {.obj_type_friendly {eng}}.")
     }
 
@@ -82,11 +82,11 @@ check_eng_val <- function(eng, call = rlang::caller_env()) {
   invisible(NULL)
 }
 
-check_pkg_val <- function(pkg, call = rlang::caller_env()) {
-  if (rlang::is_missing(pkg) || length(pkg) != 1 || !is.character(pkg)) {
+check_pkg_val <- function(pkg, call = caller_env()) {
+  if (is_missing(pkg) || length(pkg) != 1 || !is.character(pkg)) {
     msg <- "Please supply a character string for the package name."
     
-    if (!rlang::is_missing(pkg)) {
+    if (!is_missing(pkg)) {
       msg <- paste0(msg, " Not {.obj_type_friendly {pkg}}.")
     }
 
@@ -113,7 +113,7 @@ check_pkg_val <- function(pkg, call = rlang::caller_env()) {
 check_spec_mode_engine_val <- function(model,
                                        mode,
                                        eng,
-                                       call = rlang::caller_env()) {
+                                       call = caller_env()) {
   all_modes <- get_from_env(paste0(model, "_modes"))
   if (!(mode %in% all_modes)) {
     cli::cli_abort(
@@ -122,7 +122,7 @@ check_spec_mode_engine_val <- function(model,
     )
   }
 
-  model_info <- rlang::env_get(get_model_env(), model)
+  model_info <- env_get(get_model_env(), model)
 
   # ------------------------------------------------------------------------------
   # First check engine against any mode for the given model class

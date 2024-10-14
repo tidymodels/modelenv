@@ -31,6 +31,6 @@ pred_types <- c("cluster", "raw")
 
 # ------------------------------------------------------------------------------
 
-modelenv <- rlang::new_environment()
+modelenv <- new_environment()
 modelenv$models <- NULL
 modelenv$modes <- c(all_modes, "unknown")

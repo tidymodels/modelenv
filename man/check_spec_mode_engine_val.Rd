@@ -4,7 +4,7 @@
 \alias{check_spec_mode_engine_val}
 \title{Error handling for unknown mode}
 \usage{
-check_spec_mode_engine_val(model, mode, eng, call = rlang::caller_env())
+check_spec_mode_engine_val(model, mode, eng, call = caller_env())
 }
 \arguments{
 \item{model}{Character of specific model}

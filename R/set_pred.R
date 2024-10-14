@@ -98,12 +98,12 @@ set_pred <- function(model, mode, eng, type, value) {
 get_pred_type <- function(model, type) {
   check_model_val(model)
   pred_name <- paste0(model, "_predict")
-  all_preds <- rlang::env_get(get_model_env(), pred_name)
+  all_preds <- env_get(get_model_env(), pred_name)
   vctrs::vec_slice(all_preds, all_preds$type == type)
 }
 
-check_pred_info <- function(pred_obj, type, call = rlang::caller_env()) {
-  if (rlang::is_missing(pred_obj)) {
+check_pred_info <- function(pred_obj, type, call = caller_env()) {
+  if (is_missing(pred_obj)) {
     cli::cli_abort(
       "Argument {.arg value} is missing, with no default.",
       call = call
