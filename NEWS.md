@@ -1,4 +1,4 @@
-# modelenv (development version)
+# modelenv 0.2.0
 
 * All errors have been improved for clarity and converted to use the cli package.
 
