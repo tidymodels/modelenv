@@ -11,12 +11,11 @@ test_that("set_pred() works", {
       pre = NULL,
       post = NULL,
       func = c(fun = "predict"),
-      args =
-        list(
-          object = rlang::expr(object$fit),
-          newdata = rlang::expr(new_data),
-          type = "response"
-        )
+      args = list(
+        object = rlang::expr(object$fit),
+        newdata = rlang::expr(new_data),
+        type = "response"
+      )
     )
   )
 
@@ -66,12 +65,11 @@ test_that("set_pred() errors with wrong `model` argument", {
         pre = NULL,
         post = NULL,
         func = c(fun = "predict"),
-        args =
-          list(
-            object = rlang::expr(object$fit),
-            newdata = rlang::expr(new_data),
-            type = "response"
-          )
+        args = list(
+          object = rlang::expr(object$fit),
+          newdata = rlang::expr(new_data),
+          type = "response"
+        )
       )
     )
   )
@@ -108,12 +106,11 @@ test_that("set_pred() errors with wrong `mode` argument", {
         pre = NULL,
         post = NULL,
         func = c(fun = "predict"),
-        args =
-          list(
-            object = rlang::expr(object$fit),
-            newdata = rlang::expr(new_data),
-            type = "response"
-          )
+        args = list(
+          object = rlang::expr(object$fit),
+          newdata = rlang::expr(new_data),
+          type = "response"
+        )
       )
     )
   )
@@ -164,12 +161,11 @@ test_that("set_pred() errors with wrong `value` argument", {
       value = list(
         post = NULL,
         func = c(fun = "predict"),
-        args =
-          list(
-            object = rlang::expr(object$fit),
-            newdata = rlang::expr(new_data),
-            type = "response"
-          )
+        args = list(
+          object = rlang::expr(object$fit),
+          newdata = rlang::expr(new_data),
+          type = "response"
+        )
       )
     )
   )
@@ -184,12 +180,11 @@ test_that("set_pred() errors with wrong `value` argument", {
       value = list(
         pre = NULL,
         func = c(fun = "predict"),
-        args =
-          list(
-            object = rlang::expr(object$fit),
-            newdata = rlang::expr(new_data),
-            type = "response"
-          )
+        args = list(
+          object = rlang::expr(object$fit),
+          newdata = rlang::expr(new_data),
+          type = "response"
+        )
       )
     )
   )
@@ -204,12 +199,11 @@ test_that("set_pred() errors with wrong `value` argument", {
       value = list(
         pre = NULL,
         post = NULL,
-        args =
-          list(
-            object = rlang::expr(object$fit),
-            newdata = rlang::expr(new_data),
-            type = "response"
-          )
+        args = list(
+          object = rlang::expr(object$fit),
+          newdata = rlang::expr(new_data),
+          type = "response"
+        )
       )
     )
   )
@@ -240,12 +234,11 @@ test_that("set_pred() errors with wrong `value` argument", {
         pre = "NULL",
         post = NULL,
         func = c(fun = "predict"),
-        args =
-          list(
-            object = rlang::expr(object$fit),
-            newdata = rlang::expr(new_data),
-            type = "response"
-          )
+        args = list(
+          object = rlang::expr(object$fit),
+          newdata = rlang::expr(new_data),
+          type = "response"
+        )
       )
     )
   )
@@ -261,12 +254,11 @@ test_that("set_pred() errors with wrong `value` argument", {
         pre = NULL,
         post = "NULL",
         func = c(fun = "predict"),
-        args =
-          list(
-            object = rlang::expr(object$fit),
-            newdata = rlang::expr(new_data),
-            type = "response"
-          )
+        args = list(
+          object = rlang::expr(object$fit),
+          newdata = rlang::expr(new_data),
+          type = "response"
+        )
       )
     )
   )
@@ -304,12 +296,11 @@ test_that("set_pred() errors with wrong `type` argument", {
         pre = NULL,
         post = NULL,
         func = c(fun = "predict"),
-        args =
-          list(
-            object = rlang::expr(object$fit),
-            newdata = rlang::expr(new_data),
-            type = "response"
-          )
+        args = list(
+          object = rlang::expr(object$fit),
+          newdata = rlang::expr(new_data),
+          type = "response"
+        )
       )
     )
   )
@@ -329,12 +320,11 @@ test_that("is_discordant_info() triggers for set_pred()", {
       pre = NULL,
       post = NULL,
       func = c(fun = "predict"),
-      args =
-        list(
-          object = rlang::expr(object$fit),
-          newdata = rlang::expr(new_data),
-          type = "response"
-        )
+      args = list(
+        object = rlang::expr(object$fit),
+        newdata = rlang::expr(new_data),
+        type = "response"
+      )
     )
   )
 
@@ -346,15 +336,14 @@ test_that("is_discordant_info() triggers for set_pred()", {
       eng = "stats",
       type = "raw",
       value = list(
-        pre =  NULL,
+        pre = NULL,
         post = NULL,
         func = c(fun = "not predict"),
-        args =
-          list(
-            object = rlang::expr(object$fit),
-            newdata = rlang::expr(new_data),
-            type = "response"
-          )
+        args = list(
+          object = rlang::expr(object$fit),
+          newdata = rlang::expr(new_data),
+          type = "response"
+        )
       )
     )
   )
@@ -373,12 +362,11 @@ test_that("set_pred() can be called multiple times", {
       pre = NULL,
       post = NULL,
       func = c(fun = "predict"),
-      args =
-        list(
-          object = rlang::expr(object$fit),
-          newdata = rlang::expr(new_data),
-          type = "response"
-        )
+      args = list(
+        object = rlang::expr(object$fit),
+        newdata = rlang::expr(new_data),
+        type = "response"
+      )
     )
   )
 
@@ -392,12 +380,11 @@ test_that("set_pred() can be called multiple times", {
         pre = NULL,
         post = NULL,
         func = c(fun = "predict"),
-        args =
-          list(
-            object = rlang::expr(object$fit),
-            newdata = rlang::expr(new_data),
-            type = "response"
-          )
+        args = list(
+          object = rlang::expr(object$fit),
+          newdata = rlang::expr(new_data),
+          type = "response"
+        )
       )
     )
   )

@@ -1,11 +1,16 @@
 test_that("adding a new model", {
   set_new_model("sponge")
 
-  mod_items <- get_model_env() %>% rlang::env_names()
+  mod_items <- get_model_env()
+  mod_items <- rlang::env_names(mod_items)
   sponges <- grep("sponge", mod_items, value = TRUE)
   exp_obj <- c(
-    "sponge_modes", "sponge_fit", "sponge_args",
-    "sponge_predict", "sponge_pkgs", "sponge"
+    "sponge_modes",
+    "sponge_fit",
+    "sponge_args",
+    "sponge_predict",
+    "sponge_pkgs",
+    "sponge"
   )
   expect_equal(sort(sponges), sort(exp_obj))
 
@@ -20,14 +25,17 @@ test_that("adding a new model", {
   )
 
   expect_equal(
-    get_from_env("sponge_modes"), "unknown"
+    get_from_env("sponge_modes"),
+    "unknown"
   )
 
   expect_equal(
     get_from_env("sponge_args"),
     tibble::tibble(
-      engine = character(0), exposed = character(0),
-      original = character(0), func = vector("list"),
+      engine = character(0),
+      exposed = character(0),
+      original = character(0),
+      func = vector("list"),
       has_submodel = logical(0)
     )
   )
@@ -44,8 +52,10 @@ test_that("adding a new model", {
   expect_equal(
     get_from_env("sponge_predict"),
     tibble::tibble(
-      engine = character(0), mode = character(0),
-      type = character(0), value = vector("list")
+      engine = character(0),
+      mode = character(0),
+      type = character(0),
+      value = vector("list")
     )
   )
 
