@@ -9,9 +9,7 @@
 #' library(rlang)
 #' tmp <- catch_cnd(stop_incompatible_mode("partition"))
 #' @export
-stop_incompatible_mode <- function(spec_modes,
-                                   eng = NULL,
-                                   model = NULL) {
+stop_incompatible_mode <- function(spec_modes, eng = NULL, model = NULL) {
   if (is.null(eng) & is.null(model)) {
     msg <- "Available modes are:"
   }
@@ -36,7 +34,7 @@ stop_incompatible_mode <- function(spec_modes,
 check_model_val <- function(model, call = caller_env()) {
   if (is_missing(model) || length(model) != 1 || !is.character(model)) {
     msg <- "Please supply a character string for a model name (e.g. {.val k_means})."
-    
+
     if (!is_missing(model)) {
       msg <- paste0(msg, " Not {.obj_type_friendly {model}}.")
     }
@@ -59,7 +57,7 @@ check_model_val <- function(model, call = caller_env()) {
 check_mode_val <- function(mode, call = caller_env()) {
   if (is_missing(mode) || length(mode) != 1 || !is.character(mode)) {
     msg <- "Please supply a character string for a mode (e.g. {.val partition})."
-    
+
     if (!is_missing(mode)) {
       msg <- paste0(msg, " Not {.obj_type_friendly {mode}}.")
     }
@@ -72,7 +70,7 @@ check_mode_val <- function(mode, call = caller_env()) {
 check_eng_val <- function(eng, call = caller_env()) {
   if (is_missing(eng) || length(eng) != 1 || !is.character(eng)) {
     msg <- "Please supply a character string for an engine name (e.g. {.val stats})."
-    
+
     if (!is_missing(eng)) {
       msg <- paste0(msg, " Not {.obj_type_friendly {eng}}.")
     }
@@ -85,7 +83,7 @@ check_eng_val <- function(eng, call = caller_env()) {
 check_pkg_val <- function(pkg, call = caller_env()) {
   if (is_missing(pkg) || length(pkg) != 1 || !is.character(pkg)) {
     msg <- "Please supply a character string for the package name."
-    
+
     if (!is_missing(pkg)) {
       msg <- paste0(msg, " Not {.obj_type_friendly {pkg}}.")
     }
@@ -110,10 +108,7 @@ check_pkg_val <- function(pkg, call = caller_env()) {
 #' library(rlang)
 #' tmp <- catch_cnd(check_spec_mode_engine_val("turtle", "partition", "vegan"))
 #' @export
-check_spec_mode_engine_val <- function(model,
-                                       mode,
-                                       eng,
-                                       call = caller_env()) {
+check_spec_mode_engine_val <- function(model, mode, eng, call = caller_env()) {
   all_modes <- get_from_env(paste0(model, "_modes"))
   if (!(mode %in% all_modes)) {
     cli::cli_abort(

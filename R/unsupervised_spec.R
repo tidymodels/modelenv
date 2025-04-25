@@ -34,4 +34,3 @@ new_unsupervised_spec <- function(x) {
 is_unsupervised_spec <- function(x) {
   inherits(x, "unsupervised_spec")
 }
-

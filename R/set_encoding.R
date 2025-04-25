@@ -123,8 +123,8 @@ check_encodings <- function(x, call = caller_env()) {
   if (length(extra_args) > 0) {
     cli::cli_abort(
       c(
-      x = "The values passed to {.fn set_encoding} had extra arguments:",
-      i = "{extra_args}."
+        x = "The values passed to {.fn set_encoding} had extra arguments:",
+        i = "{extra_args}."
       ),
       call = call
     )
@@ -132,9 +132,15 @@ check_encodings <- function(x, call = caller_env()) {
   invisible(x)
 }
 
-is_discordant_info <- function(model, mode, eng, candidate,
-                               pred_type = NULL, component = "fit",
-                               call = caller_env()) {
+is_discordant_info <- function(
+  model,
+  mode,
+  eng,
+  candidate,
+  pred_type = NULL,
+  component = "fit",
+  call = caller_env()
+) {
   current <- get_from_env(paste0(model, "_", component))
   if (is.null(current)) {
     return(TRUE)

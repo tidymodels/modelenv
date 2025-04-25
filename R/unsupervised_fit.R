@@ -34,4 +34,3 @@ new_unsupervised_fit <- function(x) {
 is_unsupervised_fit <- function(x) {
   inherits(x, "unsupervised_fit")
 }
-
