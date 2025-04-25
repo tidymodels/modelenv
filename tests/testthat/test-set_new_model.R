@@ -1,7 +1,8 @@
 test_that("adding a new model", {
   set_new_model("sponge")
 
-  mod_items <- get_model_env() %>% rlang::env_names()
+  mod_items <- get_model_env()
+  mod_items <- rlang::env_names(mod_items)
   sponges <- grep("sponge", mod_items, value = TRUE)
   exp_obj <- c(
     "sponge_modes",
