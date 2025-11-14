@@ -1,8 +1,8 @@
 pandoc: 3.1.11
-pkgdown: 2.1.1
+pkgdown: 2.2.0
 pkgdown_sha: ~
 articles: {}
-last_built: 2025-04-25T02:37Z
+last_built: 2025-11-14T09:43Z
 urls:
   reference: https://modelenv.tidymodels.org/reference
   article: https://modelenv.tidymodels.org/articles
